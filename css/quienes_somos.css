@@ -1,0 +1,1359 @@
+:root {
+  font-size: 100%; /* Equivalente a 16px en la mayoría de navegadores */
+}
+
+body {
+  font-family: 'typewriter';
+  font-weight: 700;
+  line-height: 1.7;
+  color: #ffff;
+  background: #8BC34A;
+  margin: 0;
+  letter-spacing: 0.0875rem;
+  padding-top: 3.75rem;
+}
+
+/* ================================== */
+/* BARRA DE NAVEGACIÓN         */
+/* ================================== */
+/* MANTENIDO: Estructura consistente y sin cambios necesarios. */
+#navegador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00A10C;
+    padding: 0.625rem 2.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    height: 2.5rem;
+    width: auto;
+    margin-right: 0.625rem; /* AJUSTE (Consistencia): Cambiado 10px a rem. */
+}
+
+.brand {
+    font-family: 'typewriter';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* ================================== */
+/* ESTILOS DROPDOWN (VERSIÓN CLIC)    */
+/* ================================== */
+/* MANTENIDO: Estructura consistente y sin cambios necesarios. */
+.nav-links .dropdown { position: relative; }
+.links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00A10C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.links .dropdown-content.visible { display: block; }
+.links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+.links .dropdown-content a:hover { background-color: #ddd; }
+.arrow {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* ================================== */
+/* ESTILOS CABECERA EDITORIAL         */
+/* ================================== */
+
+.cabecera-editorial {
+    width: 100%;
+    padding: 3.75rem 0;
+ }
+
+.editorial-container {
+    display: flex;
+    align-items: center;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.editorial-texto {
+    flex: 2; /* MANTENIDO: Excelente uso de flex para columnas proporcionales. */
+    padding-right: 2.5rem;
+}
+
+.editorial-texto h1 {
+    font-size: 3.5rem;
+    color: #14213d;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.editorial-texto p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 37.5rem;
+}
+
+.editorial-imagen {
+    flex: 1;
+    text-align: center;
+}
+
+.editorial-imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1);
+}
+
+@media (max-width: 48rem) { /* AJUSTE (Accesibilidad): Cambiado 768px a rem. */
+    .editorial-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .editorial-texto {
+        padding-right: 0;
+        margin-bottom: 2.5rem;
+    }
+    .editorial-texto p {
+        max-width: 100%;
+    }
+}
+
+/* ================================== */
+/* ESTILOS SECCIÓN DE PROYECTOS (TABS)*/
+/* ================================== */
+
+.proyectos {
+    padding: 3.75rem 1.25rem;
+    text-align: center;
+}
+
+.proyectos h2 {
+    font-size: 2.5rem;
+    color: #14213d;
+    margin-bottom: 2rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.tabs-navegacion {
+    margin-bottom: 1.875rem;
+    border-bottom: 2px solid #ddd; /* MANTENIDO: px para bordes es correcto. */
+    display: flex;
+    justify-content: center;
+}
+
+.tab-link {
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #14213d;
+    position: relative;
+    top: 2px;
+}
+
+.tab-link.active {
+    color: #00A10C;
+    border-bottom: 3px solid #00A10C;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 1.875rem;
+    text-align: left;
+}
+
+.proyecto-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.proyecto-card img {
+    width: 100%;
+    height: 1.5rem;
+    object-fit: contain;
+    background-color: #1a2e12;
+}
+
+.proyecto-card h4 {
+    font-size: 1.3rem;
+    /* AJUSTE (Consistencia): Cambiados márgenes en px a rem. */
+    margin: 0.9375rem 1.25rem 0.625rem 1.25rem;
+}
+
+.proyecto-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    /* AJUSTE (Consistencia): Cambiados márgenes en px a rem. */
+    margin: 0 1.25rem 1.25rem 1.25rem;
+    color: #555;
+}
+
+/* ================================== */
+/* ESTILOS AGENDA GENERAL             */
+/* ================================== */
+/* MANTENIDO: Esta sección ya estaba bien estructurada con rem. */
+.agenda-general-section {
+    padding: 3.75rem 1.25rem;
+    text-align: center;
+}
+.agenda-general-section h2 {
+    font-size: 2.5rem;
+    color: #14213d;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+.agenda-general-section p {
+    margin-bottom: 2rem;
+}
+.agenda-container {
+    max-width: 56.25rem;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.agenda-container iframe {
+    width: 100%;
+    height: 37.5rem;
+    border: none;
+}
+
+/* ================================== */
+/* ESTILOS INFORME DE GESTIÓN         */
+/* ================================== */
+
+.informe-section {
+    padding: 3.75rem 1.25rem;
+    text-align: center;
+}
+.informe-section h2 {
+    font-size: 2.5rem;
+    color: #14213d;
+    padding-bottom: 2.25rem;
+}
+.transparenciah2{
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+.informe-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 56.25rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.informe-portada {
+    flex: 1;
+    min-width: 15.625rem;
+}
+.informe-portada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.informe-contenido {
+    flex: 2;
+    padding: 2.5rem;
+}
+.informe-contenido h2 {
+    font-size: 2rem;
+    color: #14213d;
+}
+.informe-contenido p {
+    color: #14213d;
+}
+.informe-logros {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0; /* AJUSTE (Consistencia): Cambiado 20px a rem. */
+}
+.informe-logros li {
+    font-size: 1.1rem;
+    margin-bottom: 0.625rem; /* AJUSTE (Consistencia): Cambiado 10px a rem. */
+    color: #333;
+}
+
+/* ================================== */
+/* ESTILOS SECCIÓN NUESTRO EQUIPO     */
+/* ================================== */
+
+.equipo {
+    padding: 3.75rem 1.25rem;
+    text-align: center;
+}
+.equipo h2 {
+    font-size: 2.5rem;
+    color: #14213d;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+.equipo p {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+.equipo-grid {
+    /* CORRECCIÓN: Se cambió de 'flex' a 'grid' para que grid-template-columns funcione. */
+    display: grid; 
+    /* AJUSTE (Accesibilidad): Cambiado 250px a rem para que escale. */
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.875rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+.miembro-card {
+    background: #fdfbf8;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.miembro-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.miembro-card img {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 0.9375rem; /* AJUSTE (Consistencia): Cambiado 15px a rem. */
+}
+.miembro-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+.miembro-cargo {
+    margin: 0.3125rem 0 0 0; /* AJUSTE (Consistencia): Cambiado 5px a rem. */
+    font-size: 1rem;
+    color: #00A10C;
+    font-weight: bold;
+}
+
+/* ================================== */
+/* ESTILOS SECCIÓN ESTATUTOS (GRID)   */
+/* ================================== */
+
+.estatutos {
+    padding: 3.75rem 1.25rem;
+    background-color: #8BC34A;
+}
+
+.estatutos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #14213d;
+    margin-bottom: 2rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+/* LA CAJA PRINCIPAL AHORA USA GRID */
+/* ... (los estilos de .estatutos y .estatutos h2 se mantienen igual) ... */
+
+.estatutos-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #14213d;
+    gap: 2rem;
+    /* QUITAMOS align-items: center para que las columnas se estiren a la misma altura */
+    
+    max-width: 68.75rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.estatutos-visor {
+    width: 100%;
+    min-width: 0; /* Mantenemos este truco por si acaso */
+}
+
+/* QUITAMOS la altura fija de aquí para que sea flexible */
+.estatutos-slider {
+    width: 100%;
+    height: 100%; /* AHORA SÍ: que ocupe el 100% de su celda */
+}
+
+/* ARREGLO PARA IMÁGENES INVISIBLES: Creamos la cadena de altura */
+.swiper-wrapper, .swiper-slide {
+    height: 100%;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.estatutos-contenido {
+    padding: 3rem 2rem;
+    /* Si el contenido se pasa de alto, activa el scroll */
+    overflow: auto;
+}
+
+/* ... (El resto del CSS de .estatutos-contenido y el @media query se mantienen igual) ... */
+@media (max-width: 768px) {
+    .estatutos-card {
+        grid-template-columns: 1fr;
+    }
+    .estatutos-visor {
+        /* Le damos una altura fija solo en móviles para que no dependa del texto */
+        height: 20rem; 
+    }
+
+    .informe-card {
+        grid-template-columns: 1fr;
+    }
+    .informe-visor {
+        /* Le damos una altura fija solo en móviles para que no dependa del texto */
+        height: 20rem; 
+    }
+}
+
+
+
+/* ================================== */
+/* ADAPTABILIDAD PARA PC (MENU)       */
+/* ================================== */
+@media (min-width: 48rem) { /* MANTENIDO: Usar rem en media queries es una práctica excelente para la accesibilidad. */
+  .mi-menu-slider {
+    max-width: 31.25rem;
+  }
+}
+
+/* ================================== */
+/* ESTILOS FOOTER "ORGÁNICO"          */
+/* ================================== */
+
+/* 1. BASE (Estilo Móvil / General) */
+.footer-clorofila {
+    /* CAMBIO DE COLOR: Un verde muy profundo y oscuro.
+       Combina mejor con tu #4C6E2C que el azul marino. */
+    background-color: #1a2e12; 
+    color: #e0e0e0; /* Texto gris claro suave */
+    
+    /* TRUCO PARA QUE NO FLOTE: */
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    
+    /* Borde superior sutil para separar del contenido anterior */
+    border-top: 4px solid #4C6E2C; 
+    
+    padding-top: 2rem;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.25rem 2rem 1.25rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Columna Identidad */
+.footer-logo {
+    width: 4rem; /* Logo más pequeño */
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: brightness(0) invert(1) sepia(0.5) hue-rotate(60deg) saturate(3); /* Tinte verdoso pálido al logo */
+}
+
+.footer-brand {
+    font-family: 'typewriter', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #8BC34A; /* Tu verde brillante */
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b0b0b0;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+/* Columna Enlaces y Contacto */
+.links-col h4, .contact-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.links-col ul { list-style: none; padding: 0; }
+.links-col li { margin-bottom: 0.5rem; }
+
+.links-col a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.links-col a:hover { color: #8BC34A; }
+
+.contact-col p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Redes Sociales compactas */
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.footer-socials img {
+    width: 1.8rem; /* Iconos más chicos */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.1);
+    filter: none;
+}
+
+/* Barra Inferior */
+.footer-bottom {
+    background-color: #111f0b; /* Casi negro verdoso */
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.footer-bottom a { color: #999; text-decoration: none; }
+
+/* ==========================================================================
+   ZONA DE ESCRITORIO: ESTRATEGIA ESCALONADA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   NIVEL 1: Laptops Pequeñas y PCs viejos (De 1024px hasta 1366px)
+   Objetivo: Que todo quepa sin saltar de línea.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    #navegador {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.625rem 2rem; /* Padding lateral moderado */
+        height: auto;
+    }
+
+    .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Gap pequeño */
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        width: 40px; /* Logo discreto */
+        height: auto;
+    }
+    
+    .brand {
+        font-size: 16px; /* Tamaño fijo seguro */
+        white-space: nowrap;
+    }
+
+    #navegador .links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 15px; /* Espacio apretadito para que quepa todo */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #navegador .links a {
+        font-size: 14px; /* Letra compacta pero legible */
+        white-space: nowrap;
+        padding: 5px 0;
+        display: block;
+    }
+    
+    /* Configuración base del dropdown (aplica a todos los tamaños siguientes) */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+    }
+    .dropdown-content.visible { display: flex; }
+
+    .proyectos {
+        /* Reducimos el aire vertical */
+        padding: 2rem 1rem; 
+    }
+
+    .proyectos h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tab-link {
+        font-size: 1rem; /* Pestañas un poco más discretas */
+        padding: 0.5rem 1rem;
+    }
+
+    .tab-panel.active {
+        /* CAMBIO ESTRATÉGICO: */
+        /* Bajamos el ancho mínimo de la columna a 14rem (~224px). */
+        /* Esto permite que quepan 4 TARJETAS en fila en una laptop estándar, */
+        /* en lugar de solo 2 o 3. */
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        
+        gap: 1rem; /* Menos espacio entre tarjetas */
+    }
+
+    .proyecto-card img {
+        /* Imagen más bajita para que la tarjeta no sea tan larga */
+        height: 15rem; 
+    }
+
+    .proyecto-card h4 {
+        font-size: 1.1rem;
+        /* Reducimos márgenes internos */
+        margin: 0.8rem 1rem 0.4rem 1rem;
+        color: #14213d;
+    }
+
+    .proyecto-card p {
+        font-size: 0.9rem;
+        margin: 0 1rem 1rem 1rem;
+    }
+
+    .agenda-general-section {
+        /* Reducimos el aire vertical */
+        padding: 2rem 1rem; 
+    }
+
+    .agenda-general-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .agenda-general-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .agenda-container {
+        /* Reducimos el ancho máximo para que no se vea tan estirado */
+        max-width: 45rem; 
+    }
+
+    .agenda-container iframe {
+        /* AQUÍ EL CAMBIO CLAVE: */
+        /* Bajamos de 600px a ~450px (28rem). */
+        /* Suficiente para ver el mes, pero ahorra mucho espacio vertical. */
+        height: 28rem; 
+    }
+
+    .informe-section {
+        padding: 2rem 1rem; /* Reducimos el aire vertical de la sección */
+    }
+
+    .informe-section h2 {
+        font-size: 1.8rem; /* Título principal más chico */
+        padding-bottom: 1.5rem;
+    }
+
+.informe-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #14213d;
+    gap: 2rem;
+    /* QUITAMOS align-items: center para que las columnas se estiren a la misma altura */
+    
+    max-width: 68.75rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.informe-visor {
+    width: 100%;
+    min-width: 0; /* Mantenemos este truco por si acaso */
+}
+
+/* QUITAMOS la altura fija de aquí para que sea flexible */
+.informe-slider {
+    width: 100%;
+    height: 100%; /* AHORA SÍ: que ocupe el 100% de su celda */
+}
+
+/* ARREGLO PARA IMÁGENES INVISIBLES: Creamos la cadena de altura */
+.swiper-wrapper, .swiper-slide {
+    height: 100%;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.informe-contenido {
+    padding: 3rem 2rem;
+    /* Si el contenido se pasa de alto, activa el scroll */
+    overflow: auto;
+}
+
+    .equipo {
+        padding: 2rem 1rem; /* Reducimos aire vertical */
+    }
+
+    .equipo h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .equipo p {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .equipo-grid {
+        /* CAMBIO ESTRATÉGICO: */
+        /* Bajamos el ancho mínimo de columna a 12.5rem (~200px). */
+        /* Esto permite meter hasta 5 TARJETAS por fila en una laptop, */
+        /* aprovechando mejor el ancho. */
+        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+        
+        gap: 1rem; /* Juntamos un poco más las tarjetas */
+        max-width: 65rem; /* Contenemos el ancho total */
+    }
+
+    .miembro-card {
+        padding: 1rem; /* Menos relleno en la tarjeta */
+    }
+
+    .miembro-card img {
+        /* Foto más pequeña: de 120px a ~96px */
+        width: 6rem; 
+        height: 6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .miembro-card h3 {
+        font-size: 1.2rem; /* Nombre un poco más chico */
+    }
+
+    .miembro-cargo {
+        font-size: 0.9rem;
+    }
+
+    .estatutos {
+        padding: 2rem 1rem; /* Menos aire arriba/abajo */
+    }
+
+    .estatutos h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .estatutos-card {
+        /* Reducimos el ancho máximo */
+        max-width: 55rem; 
+        gap: 1rem; /* Acercamos la columna de imagen y texto */
+    }
+
+    .estatutos-contenido {
+        /* AQUÍ EL CAMBIO CLAVE: */
+        /* Bajamos el padding interno de 3rem a 1.5rem. */
+        /* En una columna estrecha, esos píxeles extra son oro para el texto. */
+        padding: 1.5rem; 
+    }
+    
+    /* Opcional: Ajustar tamaño de fuente del contenido si tienes párrafos <p> */
+    .estatutos-contenido p, 
+    .estatutos-contenido li {
+        font-size: 0.95rem;
+    }
+
+    .informe-card {
+        /* Reducimos el ancho máximo */
+        max-width: 55rem; 
+        gap: 1rem; /* Acercamos la columna de imagen y texto */
+    }
+
+    .informe-contenido {
+        /* AQUÍ EL CAMBIO CLAVE: */
+        /* Bajamos el padding interno de 3rem a 1.5rem. */
+        /* En una columna estrecha, esos píxeles extra son oro para el texto. */
+        padding: 1.5rem; 
+    }
+    
+    /* Opcional: Ajustar tamaño de fuente del contenido si tienes párrafos <p> */
+    .informe-contenido p, 
+    .informe-contenido li {
+        font-size: 0.95rem;
+    }
+
+    .footer-clorofila {
+        padding-top: 1.5rem; /* Muy poco aire arriba */
+    }
+
+    .footer-container {
+        /* Grid de 3 columnas pero COMPACTO */
+        grid-template-columns: 1.5fr 1fr 1.2fr; 
+        text-align: left;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .footer-desc {
+        margin: 0;
+        font-size: 0.85rem; /* Texto chiquito y elegante */
+    }
+
+    .footer-socials { justify-content: flex-start; }
+
+    .footer-logo { width: 3.5rem; }
+    
+    .footer-brand { font-size: 1.1rem; }
+    
+    .links-col h4, .contact-col h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #4C6E2C; /* Línea separadora sutil */
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 2: Escritorio Estándar / Laptops grandes (Desde 1367px en adelante)
+   Objetivo: Mejorar la legibilidad y dar aire.
+   (Esto SOBRESCRIBE al Nivel 1 si la pantalla es más grande)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1367px) {
+    #navegador {
+        padding: 0.625rem 3rem; /* Más aire a los lados */
+    }
+
+    .brand-box {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 50px; /* El logo crece un poco */
+    }
+
+    .brand {
+        font-size: 18px; /* La marca se hace notar más */
+    }
+
+    #navegador .links {
+        gap: 25px; /* Los enlaces se separan más, más elegante */
+    }
+
+    #navegador .links a {
+        font-size: 16px; /* Tamaño estándar web */
+    }
+    
+    .dropdown-content {
+        min-width: 200px;
+    }
+
+    .proyectos {
+        padding: 3rem 1.25rem;
+    }
+
+    .proyectos h2 { font-size: 2.2rem; }
+
+    .tab-panel.active {
+        /* Volvemos a un tamaño de tarjeta más estándar */
+        grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+        gap: 1.5rem;
+    }
+
+    .proyecto-card img { height: 11.5rem; }
+    
+    .proyecto-card h4 { font-size: 1.25rem; }
+
+    .agenda-general-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .agenda-general-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .agenda-container {
+        max-width: 55rem; /* Volvemos casi al ancho original */
+    }
+
+    .agenda-container iframe {
+        height: 35rem; /* Altura estándar cómoda */
+    }
+
+    .informe-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .informe-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .informe-card {
+        max-width: 55rem; /* Volvemos al ancho original */
+    }
+
+    .informe-contenido {
+        padding: 2.5rem; /* Volvemos al padding original cómodo */
+    }
+    
+    .informe-contenido h2 {
+        font-size: 1.8rem;
+    }
+
+    .equipo {
+        padding: 3rem 1.25rem;
+    }
+
+    .equipo h2 { font-size: 2.2rem; }
+
+    .equipo-grid {
+        /* Volvemos al ancho de columna original */
+        grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+        gap: 1.875rem;
+        max-width: 75rem;
+    }
+
+    .miembro-card img {
+        width: 7.5rem; /* Foto tamaño original */
+        height: 7.5rem;
+    }
+
+    .miembro-card h3 { font-size: 1.4rem; }
+
+    .estatutos {
+        padding: 3rem 1.25rem;
+    }
+
+    .estatutos h2 {
+        font-size: 2.2rem;
+    }
+
+    .estatutos-card {
+        max-width: 68.75rem; /* Volvemos al ancho original */
+        gap: 2rem;
+    }
+
+    .estatutos-contenido {
+        padding: 3rem 2rem; /* Volvemos al padding amplio */
+    }
+    
+    .estatutos-contenido p, 
+    .estatutos-contenido li {
+        font-size: 1rem;
+    }
+
+    .informe-card {
+        max-width: 68.75rem; /* Volvemos al ancho original */
+        gap: 2rem;
+    }
+
+    .informe-contenido {
+        padding: 3rem 2rem; /* Volvemos al padding amplio */
+    }
+    
+    .informe-contenido p, 
+    .informe-contenido li {
+        font-size: 1rem;
+    }
+
+    .footer-clorofila { padding-top: 3rem; }
+    .footer-container { gap: 3rem; }
+    .footer-brand { font-size: 1.5rem; }
+    .footer-desc { font-size: 1rem; }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 3: Pantallas Gigantes / 4K / iMacs (Desde 1600px en adelante)
+   Objetivo: Que no se vea todo diminuto en un monitor enorme.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1600px) {
+    #navegador {
+        padding: 0.8rem 5rem; /* Mucho padding para centrar la vista */
+    }
+
+    .brand-box {
+        gap: 15px;
+    }
+
+    .logo {
+        width: 65px; /* Logo grande */
+    }
+
+    .brand {
+        font-size: 22px; /* Título imponente */
+    }
+
+    #navegador .links {
+        gap: 40px; /* Mucho espacio entre botones */
+    }
+
+    #navegador .links a {
+        font-size: 18px; /* Texto grande y fácil de leer */
+    }
+
+    .proyectos {
+        padding: 5rem 2rem;
+    }
+
+    .proyectos h2 { font-size: 3rem; }
+
+    .tab-link { font-size: 1.4rem; }
+
+    .tab-panel.active {
+        /* Tarjetas anchas para llenar el monitor */
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        gap: 2rem;
+    }
+
+    .proyecto-card img { height: 15rem; }
+
+    .proyecto-card h4 { font-size: 1.5rem; }
+
+    .proyecto-card p { font-size: 1.1rem; }
+
+    .agenda-general-section {
+        padding: 5rem 2rem;
+    }
+
+    .agenda-general-section h2 {
+        font-size: 3rem;
+    }
+    
+    .agenda-general-section p {
+        font-size: 1.3rem;
+    }
+
+    .agenda-container {
+        max-width: 75rem; /* Súper ancho */
+    }
+
+    .agenda-container iframe {
+        height: 45rem; /* Altura generosa para ver muchos eventos */
+    }
+
+    .informe-section {
+        padding: 5rem 2rem;
+    }
+
+    .informe-section h2 {
+        font-size: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .informe-card {
+        max-width: 75rem; /* Tarjeta muy ancha */
+    }
+
+    .informe-contenido {
+        padding: 4rem; /* Mucho aire interno */
+    }
+
+    .informe-contenido h2 {
+        font-size: 2.5rem;
+    }
+
+    .informe-logros li {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .informe-portada {
+        min-width: 25rem; /* Imagen más ancha */
+    }
+
+    .equipo {
+        padding: 5rem 2rem;
+    }
+
+    .equipo h2 { font-size: 3rem; }
+
+    .equipo-grid {
+        max-width: 90rem; /* Muy ancho */
+        /* Columnas anchas para tarjetas grandes */
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 2.5rem;
+    }
+
+    .miembro-card {
+        padding: 2rem;
+    }
+
+    .miembro-card img {
+        width: 9rem; /* Fotos grandes */
+        height: 9rem;
+    }
+
+    .miembro-card h3 { font-size: 1.6rem; }
+
+    .miembro-cargo { font-size: 1.1rem; }
+
+    .estatutos {
+        padding: 5rem 2rem;
+    }
+
+    .estatutos h2 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .estatutos-card {
+        max-width: 85rem; /* Tarjeta muy ancha */
+        gap: 3rem;
+    }
+
+    .estatutos-contenido {
+        padding: 4rem 3rem; /* Mucho aire interno */
+    }
+    
+    .estatutos-contenido p, 
+    .estatutos-contenido li {
+        font-size: 1.2rem;
+    }
+
+    .informe-card {
+        max-width: 85rem; /* Tarjeta muy ancha */
+        gap: 3rem;
+    }
+
+    .informe-contenido {
+        padding: 4rem 3rem; /* Mucho aire interno */
+    }
+    
+    .informe-contenido p, 
+    .informe-contenido li {
+        font-size: 1.2rem;
+    }
+}
+
+/* ================================== */
+/* INFO SECTION                       */
+/* ================================== */
+
+.info-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  min-height: 90vh; /* vh es perfecto para altura de pantalla */
+  width: 100%; /* % para ocupar todo el ancho */
+  background-color: #8BC34A;
+}
+
+.mision,
+.vision,
+.historia {
+  flex: 1; /* Cada columna ocupa 50% */
+}
+
+.mision, 
+.vision {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem; /* 40px -> rem */
+  text-align: center;
+}
+
+.historia {
+    display: block;
+    align-items: stretch;
+}
+
+.mision h2, 
+.vision h2,
+.historia h2 {
+  font-size: 1.5rem;
+  color: #14213d;
+  margin-bottom: 1.5rem;    
+  text-align: center;
+}
+
+.historia h2 {
+    margin-top: 1.5rem;
+}
+
+.mision p, 
+.vision p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 31.25rem; /* 500px -> rem */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.historia p {
+    font-size: 1.1rem;
+    color: #555;
+    width: 100%;
+    max-width: 74.25rem;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mision-card,
+.vision-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 56.25rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.historia-card {
+    align-items: center;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    grid-column: 1 / -1; 
+    height: auto !important; 
+    min-height: 0;
+    width: 95%;
+    max-width: none;
+}

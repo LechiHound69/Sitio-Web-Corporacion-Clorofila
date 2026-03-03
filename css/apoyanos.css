@@ -1,0 +1,546 @@
+:root {
+  font-size: 100%; /* Equivalente a 16px en la mayoría de navegadores */
+}
+
+body {
+  font-family: 'typewriter';
+  font-weight: 700;
+  line-height: 1.7;
+  color: #ffff;
+  background: #8BC34A;
+  margin: 0;
+  letter-spacing: 0.0875rem; /* 1.4px -> rem */
+  padding-top: 3.75rem;
+}
+
+/* ================================== */
+/* BARRA DE NAVEGACIÓN         */
+/* ================================== */
+
+#navegador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00A10C;
+    padding: 0.625rem 2.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* MANTENIDO: px para sombras es la mejor práctica */
+    position: fixed;
+    width: 100%; /* MANTENIDO: % es necesario para que ocupe todo el ancho al ser fijo */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* --- Logo y Marca --- */
+.brand-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    height: 2.5rem;
+    width: auto;
+    margin-right: 0.625rem; /* AJUSTE (Consistencia): Cambiado 10px a rem para mantener la consistencia en espaciados. */
+}
+
+.brand {
+    font-family: 'typewriter';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Enlaces de Navegación --- */
+.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px; /* MANTENIDO: px para radios de borde pequeños está bien, es un detalle visual fino. */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* ================================== */
+/* ESTILOS DROPDOWN (VERSIÓN CLIC)    */
+/* ================================== */
+
+.nav-links .dropdown {
+    position: relative;
+}
+
+.links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00A10C;
+    min-width: 160px; /* MANTENIDO: px está bien para un ancho mínimo de un elemento pequeño como un dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.links .dropdown-content.visible {
+    display: block;
+}
+
+.links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.links .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.arrow {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* ================================== */
+/* ESTILOS PÁGINA DE APÓYANOS         */
+/* ================================== */
+.apoyanos-section {
+    padding: 4rem 1.25rem;
+    background-color: #8BC34A; /* Un fondo suave y neutro */
+    color: #14213d;
+}
+
+.apoyanos-container {
+    max-width: 50rem; /* 800px */
+    margin: 0 auto;
+}
+
+.apoyo-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.apoyo-intro h2 {
+    font-size: 2.5rem;
+    color: #14213d;
+}
+
+.apoyo-card {
+    background-color: #A2AF98;
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apoyo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.apoyo-card h3 {
+    font-size: 1.8rem;
+    color: #14213d;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.apoyo-card h3 i {
+    color: #00A10C; /* El verde de tu marca */
+    margin-right: 0.75rem;
+}
+
+.metodo {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+.metodo:first-of-type {
+    border-top: none; /* El primer método no necesita línea divisoria arriba */
+}
+
+.metodo > i {
+    font-size: 2rem;
+    color: #14213d;
+    margin-right: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.metodo-info p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.qr-code {
+    max-width: 150px;
+    margin-top: 1rem;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.apoyo-card ul {
+    list-style: none;
+    padding: 0;
+}
+.apoyo-card ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.apoyo-card ul i {
+    margin-right: 1rem;
+    color: #14213d;
+}
+
+/* ================================== */
+/* ESTILOS PARA EL BOTÓN DE COPIAR    */
+/* ================================== */
+
+/* Contenedor para alinear texto y botón */
+.copiable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A2AF98; /* Un fondo suave para destacar la línea */
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.copiable p {
+    margin: 0;
+}
+
+/* Estilo del botón */
+.btn-copiar {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-copiar:hover {
+    background-color: #d1d1d1;
+}
+
+/* Estilo para cuando el texto ya fue copiado */
+.btn-copiar.copiado {
+    background-color: #00A10C; /* El verde de tu marca */
+    color: white;
+}
+
+/* ================================== */
+/* ESTILOS FOOTER "ORGÁNICO"          */
+/* ================================== */
+
+/* 1. BASE (Estilo Móvil / General) */
+.footer-clorofila {
+    /* CAMBIO DE COLOR: Un verde muy profundo y oscuro.
+       Combina mejor con tu #4C6E2C que el azul marino. */
+    background-color: #1a2e12; 
+    color: #e0e0e0; /* Texto gris claro suave */
+    
+    /* TRUCO PARA QUE NO FLOTE: */
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    
+    /* Borde superior sutil para separar del contenido anterior */
+    border-top: 4px solid #4C6E2C; 
+    
+    padding-top: 2rem;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.25rem 2rem 1.25rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Columna Identidad */
+.footer-logo {
+    width: 4rem; /* Logo más pequeño */
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: brightness(0) invert(1) sepia(0.5) hue-rotate(60deg) saturate(3); /* Tinte verdoso pálido al logo */
+}
+
+.footer-brand {
+    font-family: 'typewriter', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #8BC34A; /* Tu verde brillante */
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b0b0b0;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+/* Columna Enlaces y Contacto */
+.links-col h4, .contact-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.links-col ul { list-style: none; padding: 0; }
+.links-col li { margin-bottom: 0.5rem; }
+
+.links-col a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.links-col a:hover { color: #8BC34A; }
+
+.contact-col p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Redes Sociales compactas */
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.footer-socials img {
+    width: 1.8rem; /* Iconos más chicos */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.1);
+    filter: none;
+}
+
+/* Barra Inferior */
+.footer-bottom {
+    background-color: #111f0b; /* Casi negro verdoso */
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.footer-bottom a { color: #999; text-decoration: none; }
+
+/* ==========================================================================
+   ZONA DE ESCRITORIO: ESTRATEGIA ESCALONADA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   NIVEL 1: Laptops Pequeñas y PCs viejos (De 1024px hasta 1366px)
+   Objetivo: Que todo quepa sin saltar de línea.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    #navegador {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.625rem 2rem; /* Padding lateral moderado */
+        height: auto;
+    }
+
+    .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Gap pequeño */
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        width: 40px; /* Logo discreto */
+        height: auto;
+    }
+    
+    .brand {
+        font-size: 16px; /* Tamaño fijo seguro */
+        white-space: nowrap;
+    }
+
+    #navegador .links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 15px; /* Espacio apretadito para que quepa todo */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #navegador .links a {
+        font-size: 14px; /* Letra compacta pero legible */
+        white-space: nowrap;
+        padding: 5px 0;
+        display: block;
+    }
+    
+    /* Configuración base del dropdown (aplica a todos los tamaños siguientes) */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+    }
+    .dropdown-content.visible { display: flex; }
+
+    .footer-clorofila {
+        padding-top: 1.5rem; /* Muy poco aire arriba */
+    }
+
+    .footer-container {
+        /* Grid de 3 columnas pero COMPACTO */
+        grid-template-columns: 1.5fr 1fr 1.2fr; 
+        text-align: left;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .footer-desc {
+        margin: 0;
+        font-size: 0.85rem; /* Texto chiquito y elegante */
+    }
+
+    .footer-socials { justify-content: flex-start; }
+
+    .footer-logo { width: 3.5rem; }
+    
+    .footer-brand { font-size: 1.1rem; }
+    
+    .links-col h4, .contact-col h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #4C6E2C; /* Línea separadora sutil */
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 2: Escritorio Estándar / Laptops grandes (Desde 1367px en adelante)
+   Objetivo: Mejorar la legibilidad y dar aire.
+   (Esto SOBRESCRIBE al Nivel 1 si la pantalla es más grande)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1367px) {
+    #navegador {
+        padding: 0.625rem 3rem; /* Más aire a los lados */
+    }
+
+    .brand-box {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 50px; /* El logo crece un poco */
+    }
+
+    .brand {
+        font-size: 18px; /* La marca se hace notar más */
+    }
+
+    #navegador .links {
+        gap: 25px; /* Los enlaces se separan más, más elegante */
+    }
+
+    #navegador .links a {
+        font-size: 16px; /* Tamaño estándar web */
+    }
+    
+    .dropdown-content {
+        min-width: 200px;
+    }
+
+    .footer-clorofila { padding-top: 3rem; }
+    .footer-container { gap: 3rem; }
+    .footer-brand { font-size: 1.5rem; }
+    .footer-desc { font-size: 1rem; }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 3: Pantallas Gigantes / 4K / iMacs (Desde 1600px en adelante)
+   Objetivo: Que no se vea todo diminuto en un monitor enorme.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1600px) {
+    #navegador {
+        padding: 0.8rem 5rem; /* Mucho padding para centrar la vista */
+    }
+
+    .brand-box {
+        gap: 15px;
+    }
+
+    .logo {
+        width: 65px; /* Logo grande */
+    }
+
+    .brand {
+        font-size: 22px; /* Título imponente */
+    }
+
+    #navegador .links {
+        gap: 40px; /* Mucho espacio entre botones */
+    }
+
+    #navegador .links a {
+        font-size: 18px; /* Texto grande y fácil de leer */
+    }
+}

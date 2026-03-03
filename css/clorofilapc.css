@@ -1,0 +1,970 @@
+/* ================================== */
+/* ESTILOS GLOBALES Y TIPOGRAFÍA      */
+/* ================================== */
+
+:root {
+  font-size: 100%; /* Base para que 1rem = 16px */
+}
+
+body {
+  font-family: 'typewriter';
+  font-weight: 700;
+  line-height: 1.7;
+  color: #ffff;
+  background: #8BC34A;
+  margin: 0;
+  letter-spacing: 0.0875rem; /* 1.4px -> rem */
+  padding-top: 3.75rem;
+}
+
+/* ================================== */
+/*        BARRA DE NAVEGACIÓN         */
+/* ================================== */
+
+#navegador {
+    display: flex; /* ¡La clave para alinear todo horizontalmente! */
+    justify-content: space-between; /* Empuja el logo a la izq. y los links a la der. */
+    align-items: center; /* Centra todo verticalmente */
+    background-color: #00A10C; /* Tu color verde */
+    padding: 0.625rem 2.5rem; /* Espacio interno (vertical, horizontal) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para darle profundidad */
+    position: fixed; /* La fija en la parte superior */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Se asegura de que esté por encima de todo */
+    box-sizing: border-box; /* Evita problemas con el ancho */
+}
+
+/* --- Logo y Marca --- */
+.brand-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    height: 2.5rem; /* Ajustamos el tamaño del logo */
+    width: auto;
+    margin-right: 10px;
+}
+
+.brand {
+    font-family: 'typewriter';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Enlaces de Navegación --- */
+.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Pone los elementos de la lista en una fila */
+    gap: 1.25rem; /* Espacio entre cada enlace */
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    color: white;
+}
+
+/* ================================== */
+/* ESTILOS DROPDOWN (VERSIÓN CLIC)    */
+/* ================================== */
+
+/* Contenedor del elemento del menú principal */
+.nav-links .dropdown {
+    position: relative;
+}
+
+/* El submenú, oculto por defecto */
+.links .dropdown-content {
+    display: none; /* <-- Sigue oculto por defecto */
+    position: absolute;
+    background-color: #00A10C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* LA MAGIA: Esta nueva clase será la que muestre el submenú */
+.links .dropdown-content.visible {
+    display: block;
+}
+
+/* El resto de los estilos (los enlaces, la flecha, etc.) se mantienen igual */
+.links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.links .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.arrow {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* ================================== */
+/* LAYOUT HERO SPLIT SCREEN           */
+/* ================================== */
+
+.hero-split {
+  display: flex;
+  min-height: 90vh; /* vh es perfecto para altura de pantalla */
+  width: 100%; /* % para ocupar todo el ancho */
+  background-color: #8BC34A;
+}
+
+.split-columna-texto,
+.split-columna-imagen {
+  flex: 1; /* Cada columna ocupa 50% */
+}
+
+.split-columna-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem; /* 40px -> rem */
+  text-align: center;
+}
+
+.split-columna-texto h1 {
+  font-size: 3.5rem;
+  color: #14213d;
+  margin-bottom: 1rem;
+}
+
+.split-columna-texto h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.split-columna-texto p {
+  font-size: 1.1rem;
+  color: #777;
+  max-width: 31.25rem; /* 500px -> rem */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.split-columna-imagen {
+  background-image: url('../multimedia/img/team.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ================================== */
+/* SECCIÓN INSCRIPCIÓN (CTA)          */
+/* ================================== */
+
+.inscripcion-section {
+  padding: 6.25rem 1.25rem; /* 100px 20px -> rem */
+  position: relative;
+  text-align: center;
+  color: white;
+  background-image: url('../multimedia/img/cpcbg.webp');
+  background-size: cover;
+  background-position: 50% 1%;
+  background-attachment: fixed;
+}
+
+.inscripcion-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.inscripcion-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 43.75rem; /* 700px -> rem */
+  margin: 0 auto;
+}
+
+.inscripcion-contenido h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.inscripcion-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem; /* 12px 24px -> rem */
+  border-radius: 50px; /* px está bien para un estilo específico */
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.0625rem; /* 1px -> rem */
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff; /* px es ideal para bordes */
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cta:hover {
+  background-color: #ffffff;
+  color: #14213d;
+  transform: translateY(-3px); /* px es aceptable para transformaciones pequeñas */
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2); /* 10px 20px -> rem */
+}
+
+/* ================================== */
+/* SECCIÓN ACORDEÓN                   */
+/* ================================== */
+
+.info-acordeon-section {
+  padding: 3.75rem 1.25rem; /* 60px 20px -> rem */
+  padding-bottom: 0.25rem;
+  background-color: #8BC34A;
+  text-align: center;
+}
+
+.info-acordeon-section h2 {
+  font-size: 2.5rem;
+  color: #14213d;
+  margin-bottom: 1rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.info-acordeon-section p {
+  max-width: 37.5rem; /* 600px -> rem */
+  margin: 0 auto 2rem auto;
+}
+
+.acordeon-container {
+  max-width: 50rem; /* 800px -> rem */
+  margin: 0 auto;
+  text-align: left;
+}
+
+details {
+  background-color: #4C6E2C;
+  border-radius: 8px;
+  margin-bottom: 0.625rem; /* 10px -> rem */
+  border: 1.75px solid black;
+}
+
+summary {
+  padding: 1.25rem; /* 20px -> rem */
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary::after {
+  content: '+';
+  font-size: 1.8rem;
+  font-weight: normal;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.acordeon-contenido {
+  padding: 0 1.25rem 1.25rem 1.25rem; /* 20px -> rem */
+  line-height: 1.7;
+}
+
+/* ================================== */
+/* VENTANA MODAL                      */
+/* ================================== */
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido {
+  background-color: #fff;
+  color: #333;
+  padding: 1.875rem; /* 30px -> rem */
+  border-radius: 8px;
+  width: 90%; /* % para ser fluido */
+  max-width: 43.75rem; /* 700px -> rem */
+  position: relative;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3); /* 5px 15px -> rem */
+  max-height: 80vh; /* vh para altura relativa a la pantalla */
+  overflow-y: auto;
+}
+
+.modal-cerrar {
+  color: #aaa;
+  position: absolute;
+  top: 0.625rem; /* 10px -> rem */
+  right: 1.25rem; /* 20px -> rem */
+  font-size: 1.75rem; /* 28px -> rem */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-cerrar:hover {
+  color: #000;
+}
+
+.enlace-leer-mas {
+  display: inline-block;
+  margin-top: 0.625rem; /* 10px -> rem */
+  color: #00A10C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.enlace-leer-mas:hover {
+  text-decoration: underline;
+}
+
+#modalTexto h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #14213d;
+  margin-top: 1.25rem; /* 20px -> rem */
+  margin-bottom: 0.625rem; /* 10px -> rem */
+}
+
+#modalTexto h3:first-child {
+  margin-top: 0;
+}
+
+#modalTexto p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* ================================== */
+/* SECCIÓN GALERÍA                    */
+/* ================================== */
+
+.galeria-section {
+  padding: 3.75rem 1.25rem; /* 60px 20px -> rem */
+  background-color: #8BC34A;
+  text-align: center;
+}
+
+.galeria-section h2 {
+  font-size: 2.5rem;
+  color: #14213d;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.galeria-section p {
+  margin-bottom: 2rem;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* 250px -> rem */
+  gap: 0.9375rem; /* 15px -> rem */
+  max-width: 75rem; /* 1200px -> rem */
+  margin: 0 auto;
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: 15.625rem; /* 250px -> rem */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px -> rem */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2); /* 8px 20px -> rem */
+}
+
+/* ================================== */
+/* ADAPTABILIDAD PARA MÓVILES         */
+/* ================================== */
+
+@media (max-width: 48rem) { /* 768px -> rem */
+  .hero-split {
+    flex-direction: column;
+  }
+
+  .split-columna-texto {
+    order: 2;
+    padding: 2.5rem 1.25rem; /* 40px 20px -> rem */
+  }
+
+  .split-columna-imagen {
+    order: 1;
+    min-height: 18.75rem; /* 300px -> rem */
+  }
+
+  .split-columna-texto h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ================================== */
+/* ESTILOS FOOTER "ORGÁNICO"          */
+/* ================================== */
+
+/* 1. BASE (Estilo Móvil / General) */
+.footer-clorofila {
+    /* CAMBIO DE COLOR: Un verde muy profundo y oscuro.
+       Combina mejor con tu #4C6E2C que el azul marino. */
+    background-color: #1a2e12; 
+    color: #e0e0e0; /* Texto gris claro suave */
+    
+    /* TRUCO PARA QUE NO FLOTE: */
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    
+    /* Borde superior sutil para separar del contenido anterior */
+    border-top: 4px solid #4C6E2C; 
+    
+    padding-top: 2rem;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.25rem 2rem 1.25rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Columna Identidad */
+.footer-logo {
+    width: 4rem; /* Logo más pequeño */
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: brightness(0) invert(1) sepia(0.5) hue-rotate(60deg) saturate(3); /* Tinte verdoso pálido al logo */
+}
+
+.footer-brand {
+    font-family: 'typewriter', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #8BC34A; /* Tu verde brillante */
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b0b0b0;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+/* Columna Enlaces y Contacto */
+.links-col h4, .contact-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.links-col ul { list-style: none; padding: 0; }
+.links-col li { margin-bottom: 0.5rem; }
+
+.links-col a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.links-col a:hover { color: #8BC34A; }
+
+.contact-col p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Redes Sociales compactas */
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.footer-socials img {
+    width: 1.8rem; /* Iconos más chicos */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.1);
+    filter: none;
+}
+
+/* Barra Inferior */
+.footer-bottom {
+    background-color: #111f0b; /* Casi negro verdoso */
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.footer-bottom a { color: #999; text-decoration: none; }
+
+/* ==========================================================================
+   ZONA DE ESCRITORIO: ESTRATEGIA ESCALONADA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   NIVEL 1: Laptops Pequeñas y PCs viejos (De 1024px hasta 1366px)
+   Objetivo: Que todo quepa sin saltar de línea.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    #navegador {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.625rem 2rem; /* Padding lateral moderado */
+        height: auto;
+    }
+
+    .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Gap pequeño */
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        width: 40px; /* Logo discreto */
+        height: auto;
+    }
+    
+    .brand {
+        font-size: 16px; /* Tamaño fijo seguro */
+        white-space: nowrap;
+    }
+
+    #navegador .links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 15px; /* Espacio apretadito para que quepa todo */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #navegador .links a {
+        font-size: 14px; /* Letra compacta pero legible */
+        white-space: nowrap;
+        padding: 5px 0;
+        display: block;
+    }
+    
+    /* Configuración base del dropdown (aplica a todos los tamaños siguientes) */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+    }
+    .dropdown-content.visible { display: flex; }
+
+      .info-acordeon-section {
+        /* Reducimos el aire arriba */
+        padding: 2rem 1rem 1rem; 
+    }
+
+    .info-acordeon-section h2 {
+        font-size: 1.8rem; /* Título más controlado */
+        margin-bottom: 0.5rem;
+    }
+    
+    .info-acordeon-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .acordeon-container {
+        /* TRUCO: Hacemos la caja más angosta (de 50rem a 38rem) */
+        /* Esto hace que se vea más ordenado en el centro de la laptop */
+        max-width: 38rem; 
+    }
+    
+    summary {
+        /* ESTO ES CLAVE: Reducimos el grosor de la barra verde */
+        /* Pasamos de 1.25rem (20px) a 0.8rem (~13px) */
+        padding: 0.8rem 1rem; 
+        font-size: 1rem; /* Letra un poco más chica */
+    }
+    
+    summary::after {
+        font-size: 1.4rem; /* El signo '+' también baja de tamaño */
+    }
+    
+    .acordeon-contenido {
+        font-size: 0.95rem; /* Texto interno cómodo */
+    }
+
+    .galeria-section {
+        /* Reducimos el aire vertical a casi la mitad */
+        padding: 2rem 1rem; 
+    }
+
+    .galeria-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .galeria-grid {
+        /* CAMBIO IMPORTANTE: */
+        /* Reducimos el ancho máximo para que no se abra tanto */
+        max-width: 55rem; 
+        
+        /* Reducimos el tamaño mínimo de la columna a 12.5rem (200px) */
+        /* Esto permite que quepan más fotos por fila en pantallas medianas */
+        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+        
+        gap: 0.8rem; /* Espacio entre fotos un poquito más cerrado */
+    }
+
+    .galeria-grid img {
+        /* AQUÍ ESTÁ LA CLAVE DEL TAMAÑO: */
+        /* Bajamos la altura de 250px a ~180px. */
+        /* Ahora las fotos son rectángulos más pequeños y manejables. */
+        height: 11.25rem; 
+    }
+
+    .inscripcion-section {
+        /* CORTE RADICAL: Bajamos de 6.25rem (100px) a 3.5rem (~56px) */
+        /* Esto hace la franja mucho más delgada y elegante en laptops */
+        padding: 3.5rem 1rem; 
+    }
+
+    .inscripcion-contenido {
+        /* Hacemos la caja de texto un poco más estrecha para centrar la lectura */
+        max-width: 35rem; 
+    }
+
+    .inscripcion-contenido h2 {
+        /* El título baja de 2.8rem a 2rem. */
+        font-size: 2rem; 
+        margin-bottom: 0.8rem;
+    }
+
+    .inscripcion-contenido p {
+        font-size: 1rem; /* Texto más estándar */
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-cta {
+        /* Botón ligeramente más pequeño y delicado */
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-clorofila {
+        padding-top: 1.5rem; /* Muy poco aire arriba */
+    }
+
+    .footer-container {
+        /* Grid de 3 columnas pero COMPACTO */
+        grid-template-columns: 1.5fr 1fr 1.2fr; 
+        text-align: left;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .footer-desc {
+        margin: 0;
+        font-size: 0.85rem; /* Texto chiquito y elegante */
+    }
+
+    .footer-socials { justify-content: flex-start; }
+
+    .footer-logo { width: 3.5rem; }
+    
+    .footer-brand { font-size: 1.1rem; }
+    
+    .links-col h4, .contact-col h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #4C6E2C; /* Línea separadora sutil */
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 2: Escritorio Estándar / Laptops grandes (Desde 1367px en adelante)
+   Objetivo: Mejorar la legibilidad y dar aire.
+   (Esto SOBRESCRIBE al Nivel 1 si la pantalla es más grande)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1367px) {
+    #navegador {
+        padding: 0.625rem 3rem; /* Más aire a los lados */
+    }
+
+    .brand-box {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 50px; /* El logo crece un poco */
+    }
+
+    .brand {
+        font-size: 18px; /* La marca se hace notar más */
+    }
+
+    #navegador .links {
+        gap: 25px; /* Los enlaces se separan más, más elegante */
+    }
+
+    #navegador .links a {
+        font-size: 16px; /* Tamaño estándar web */
+    }
+    
+    .dropdown-content {
+        min-width: 200px;
+    }
+
+    .info-acordeon-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .info-acordeon-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .acordeon-container {
+        max-width: 48rem; /* Volvemos casi al original */
+    }
+    
+    summary {
+        padding: 1.1rem 1.25rem; /* Vuelve a ser un poco más grueso */
+        font-size: 1.1rem;
+    }
+
+    .galeria-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .galeria-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .galeria-grid {
+        max-width: 70rem; /* Volvemos al ancho grande */
+        /* Volvemos a columnas de mínimo 250px */
+        grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+        gap: 1rem;
+    }
+
+    .galeria-grid img {
+        height: 15rem; /* Altura estándar */
+    }
+
+    .inscripcion-section {
+        padding: 5rem 1.25rem; /* Casi el original */
+    }
+
+    .inscripcion-contenido {
+        max-width: 45rem; 
+    }
+
+    .inscripcion-contenido h2 {
+        font-size: 2.5rem;
+    }
+    
+    .inscripcion-contenido p {
+        font-size: 1.15rem;
+    }
+    
+    .btn-cta {
+        padding: 0.75rem 1.5rem; /* Volvemos al botón original */
+        font-size: 1rem;
+    }
+
+    .footer-clorofila { padding-top: 3rem; }
+    .footer-container { gap: 3rem; }
+    .footer-brand { font-size: 1.5rem; }
+    .footer-desc { font-size: 1rem; }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 3: Pantallas Gigantes / 4K / iMacs (Desde 1600px en adelante)
+   Objetivo: Que no se vea todo diminuto en un monitor enorme.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1600px) {
+    #navegador {
+        padding: 0.8rem 5rem; /* Mucho padding para centrar la vista */
+    }
+
+    .brand-box {
+        gap: 15px;
+    }
+
+    .logo {
+        width: 65px; /* Logo grande */
+    }
+
+    .brand {
+        font-size: 22px; /* Título imponente */
+    }
+
+    #navegador .links {
+        gap: 40px; /* Mucho espacio entre botones */
+    }
+
+    #navegador .links a {
+        font-size: 18px; /* Texto grande y fácil de leer */
+    }
+
+    .info-acordeon-section {
+        padding: 5rem 2rem;
+    }
+
+    .info-acordeon-section h2 {
+        font-size: 3rem;
+    }
+    
+    .info-acordeon-section p {
+        font-size: 1.3rem;
+        max-width: 45rem;
+    }
+
+    .acordeon-container {
+        max-width: 60rem; /* Caja muy ancha para monitores grandes */
+    }
+    
+    summary {
+        padding: 1.5rem; /* Barra gruesa y fácil de clickear */
+        font-size: 1.4rem;
+    }
+    
+    .acordeon-contenido {
+        font-size: 1.2rem;
+    }
+
+    .galeria-section {
+        padding: 5rem 2rem;
+    }
+
+    .galeria-section h2 {
+        font-size: 3rem;
+    }
+
+    .galeria-grid {
+        /* Dejamos que ocupe muchísimo espacio */
+        max-width: 90rem; 
+        /* Columnas anchas (mínimo 300px) */
+        grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+        gap: 1.5rem;
+    }
+
+    .galeria-grid img {
+        /* Fotos altas y espectaculares */
+        height: 20rem; 
+    }
+
+    .inscripcion-section {
+        /* Mucho aire arriba y abajo para monitores grandes */
+        padding: 8rem 2rem; 
+    }
+
+    .inscripcion-contenido {
+        max-width: 60rem; /* Permitimos que el texto se estire más */
+    }
+
+    .inscripcion-contenido h2 {
+        font-size: 3.5rem; /* Título gigante */
+    }
+
+    .inscripcion-contenido p {
+        font-size: 1.4rem;
+    }
+    
+    .btn-cta {
+        /* Botón grande y fácil de clickear */
+        padding: 1rem 2rem; 
+        font-size: 1.2rem;
+        border-width: 3px; /* Borde más grueso */
+    }
+}

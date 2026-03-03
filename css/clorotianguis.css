@@ -1,0 +1,971 @@
+:root {
+  font-size: 100%; /* Equivalente a 16px en la mayoría de navegadores */
+}
+
+body {
+  font-family: 'typewriter';
+  font-weight: 700;
+  line-height: 1.7;
+  color: #ffff;
+  background: #8BC34A;
+  margin: 0;
+  letter-spacing: 0.0875rem;
+  padding-top: 3.75rem;
+}
+
+/* ================================== */
+/* BARRA DE NAVEGACIÓN         */
+/* ================================== */
+
+#navegador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00A10C;
+    padding: 0.625rem 2.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* --- Logo y Marca --- */
+.brand-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    height: 2.5rem;
+    width: auto;
+    margin-right: 0.625rem; /* AJUSTE (Consistencia): Cambiado 10px a rem. */
+}
+
+.brand {
+    font-family: 'typewriter';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Enlaces de Navegación --- */
+.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* ================================== */
+/* ESTILOS DROPDOWN (VERSIÓN CLIC)    */
+/* ================================== */
+/* MANTENIDO: Estructura consistente y funcional. */
+.nav-links .dropdown {
+    position: relative;
+}
+.links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00A10C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.links .dropdown-content.visible { display: block; }
+.links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+.links .dropdown-content a:hover { background-color: #ddd; }
+.arrow {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* ================================== */
+/* ESTILOS HERO MOSAICO             */
+/* ================================== */
+
+.mosaico-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* MANTENIDO: 'fr' es la unidad perfecta para este grid. */
+    grid-template-rows: repeat(4, 1fr);
+    height: 90vh; /* MANTENIDO: vh para la altura de la sección es ideal. */
+    gap: 0.625rem; /* AJUSTE (Consistencia): Cambiado 10px a rem. */
+    padding-bottom: 1%;
+    background-color: #8BC34A;
+}
+
+.mosaico-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.item-1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background-image: url('../multimedia/img/tianguis11.webp');
+    background-position: 50% 93%;
+}
+.item-2 {
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+    background-image: url('../multimedia/img/tianguis13.webp');
+}
+.item-3 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+    background-image: url('../multimedia/img/tianguis2.webp');
+    background-size: contain;
+}
+.item-4 {
+    grid-column: 4 / 5;
+    grid-row: 2 / 5;
+    background-image: url('../multimedia/img/tianguis4.webp');
+}
+.item-5 {
+    grid-column: 2 / 4;
+    grid-row: 3 / 5;
+    background-image: url('../multimedia/img/tianguis12.webp');
+    background-position: 50% 85%;
+    background-size: fill;
+}
+
+.mosaico-texto {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+}
+.mosaico-texto h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+.mosaico-texto h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+@media (max-width: 48rem) { /* AJUSTE (Accesibilidad): Cambiado 768px a rem. */
+    .mosaico-grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        background-image: url('../multimedia/img/tianguis4.webp');
+    }
+    .mosaico-item { display: none; }
+    .mosaico-texto h1 { font-size: 2.5rem; }
+}
+
+/* ================================== */
+/* ESTILOS CTA PARA VENDEDORES      */
+/* ================================== */
+
+.custom-shape-divider-top-1752876816 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1752876816 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 0.08125rem); /* MANTENIDO: Técnica válida para evitar bordes. */
+    height: 115px; /* MANTENIDO: px para altura de SVG es una decisión de diseño aceptable. */
+}
+
+.custom-shape-divider-top-1752876816 .shape-fill { fill: #8BC34A; }
+
+.form-marcas {
+  padding: 0rem 1.25rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: 50% 70%;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.form-marcas::before {
+    content: '';
+    position: absolute;
+    top: -380px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background-image: url('../multimedia/img/tianguis15.webp');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.7); 
+    z-index: -1; /* Corregido de 0 a -1 para asegurar que esté detrás de todo. */
+}
+
+.form-marcas-contenido {
+    max-width: 43.75rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    margin-top: -1.875rem; /* AJUSTE (Consistencia): Cambiado -30px a rem. */
+}
+
+.form-marcas-contenido h2 {
+    font-size: 2.5rem;
+    color: #00A10C;
+    margin-bottom: 1rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.form-marcas-contenido p {
+    font-size: 1.2rem;
+    color: wheat;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.btn-tianguis {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.875rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #00A10C;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-tianguis span { display: block; }
+
+.icono-flecha {
+  margin-left: 0.625rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-tianguis:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-tianguis:hover .icono-flecha {
+  transform: translateX(5px);
+}
+
+.custom-shape-divider-bottom-1752947490 {
+    /* MANTENIDO: El original tenía un top: 0rem que no parece tener efecto
+       al estar posicionado absolutamente al bottom. Se ha limpiado para mayor claridad. */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1752947490 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 175px;
+}
+
+.custom-shape-divider-bottom-1752947490 .shape-fill { fill: #8BC34A; }
+
+
+/* ================================== */
+/* ESTILOS ACORDEÓN (VERSIÓN TIANGUIS)*/
+/* ================================== */
+
+.historia-tianguis {
+  padding: 1.8rem 1.25rem;
+  background-color: #8BC34A;
+  text-align: center;
+}
+.historia-tianguis h2 {
+  font-size: 2.5rem;
+  color: #14213d;
+  margin-bottom: 1rem;
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+.historia-tianguis p {
+  max-width: 37.5rem;
+  margin: 0 auto 2rem auto;
+  color: #14213d;
+}
+.acordeon-container details {
+    background-color: #D8A37B; 
+    border-radius: 4px;
+    margin-bottom: 0.9375rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid #00A10C;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid black;
+    font-size: 1.2rem;
+}
+.acordeon-container details:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.acordeon-container summary {
+    padding: 0.9375rem 1.25rem;
+    font-weight: bold;
+    font-family: 'typewriter', monospace; 
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.acordeon-container summary::after {
+    content: '▼'; 
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+.acordeon-container details[open] summary::after { transform: rotate(-90deg); }
+.acordeon-container .acordeon-contenido {
+    padding: 2.5rem 1.25rem 1.25rem 1.5625rem; 
+    line-height: 1.7;
+    border-top: 1px solid #FFFDD0; 
+    margin: 0 1.25rem; /* AJUSTE (Consistencia): Cambiado 20px a rem. */
+    color: black;
+}
+
+/* ================================== */
+/* VENTANA MODAL                      */
+/* ================================== */
+/* MANTENIDO: El modal ya utiliza una excelente combinación de %, rem y vh. */
+.modal {
+  visibility: hidden; opacity: 0; position: fixed; z-index: 1000;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal.visible { visibility: visible; opacity: 1; }
+.modal-contenido {
+  background-color: #fff; color: #333; padding: 1.875rem; border-radius: 8px;
+  width: 90%; max-width: 43.75rem; position: relative;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
+  max-height: 80vh; overflow-y: auto;
+}
+.modal-cerrar {
+  color: #aaa; position: absolute; top: 0.625rem; right: 1.25rem;
+  font-size: 1.75rem; font-weight: bold; cursor: pointer;
+}
+.modal-cerrar:hover { color: #000; }
+.enlace-leer-mas {
+  display: inline-block; margin-top: 0.625rem; color: #00A10C;
+  font-weight: bold; text-decoration: none;
+}
+.enlace-leer-mas:hover { text-decoration: underline; }
+#modalTexto h3 {
+  font-size: 1.4rem; font-weight: bold; color: #14213d;
+  margin-top: 1.25rem; margin-bottom: 0.625rem;
+}
+#modalTexto h3:first-child { margin-top: 0; }
+#modalTexto p { font-size: 1.1rem; line-height: 1.7; color: #555; }
+
+/* ================================== */
+/* ESTILOS CARRUSEL INTERACTIVO (SWIPER) */
+/* ================================== */
+/* MANTENIDO: La configuración del carrusel ya usa unidades relativas y escalables (% y rem). */
+.aliados-section {
+    padding: 3.25rem 0;
+    text-align: center;
+    position: relative;
+    color: #14213d;
+}
+
+.aliados-section h2 {
+        font-size: 1.8rem; /* Título más discreto */
+        background-color: rgba(99, 168, 101, 0.3);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 16px;
+        box-shadow: black;
+        padding: 6px 16px;
+}
+
+.logo-slider-interactivo {
+    width: 90%;
+    margin: 0 auto;
+    transition-timing-function: linear !important;
+}
+.swiper-wrapper {
+    padding-top: 3.5rem;
+    transition-timing-function: linear !important;
+}
+.swiper-slide {
+    width: 15rem !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+}
+.swiper-slide img {
+    height: 6.25rem;
+    max-width: 7.5rem; 
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+.swiper-slide img:hover { filter: grayscale(0%); }
+
+/* ================================== */
+/* ESTILOS FOOTER "ORGÁNICO"          */
+/* ================================== */
+
+/* 1. BASE (Estilo Móvil / General) */
+.footer-clorofila {
+    /* CAMBIO DE COLOR: Un verde muy profundo y oscuro.
+       Combina mejor con tu #4C6E2C que el azul marino. */
+    background-color: #1a2e12; 
+    color: #e0e0e0; /* Texto gris claro suave */
+    
+    /* TRUCO PARA QUE NO FLOTE: */
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    
+    /* Borde superior sutil para separar del contenido anterior */
+    border-top: 4px solid #4C6E2C; 
+    
+    padding-top: 2rem;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.25rem 2rem 1.25rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Columna Identidad */
+.footer-logo {
+    width: 4rem; /* Logo más pequeño */
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: brightness(0) invert(1) sepia(0.5) hue-rotate(60deg) saturate(3); /* Tinte verdoso pálido al logo */
+}
+
+.footer-brand {
+    font-family: 'typewriter', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #8BC34A; /* Tu verde brillante */
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b0b0b0;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+/* Columna Enlaces y Contacto */
+.links-col h4, .contact-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.links-col ul { list-style: none; padding: 0; }
+.links-col li { margin-bottom: 0.5rem; }
+
+.links-col a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.links-col a:hover { color: #8BC34A; }
+
+.contact-col p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Redes Sociales compactas */
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.footer-socials img {
+    width: 1.8rem; /* Iconos más chicos */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.1);
+    filter: none;
+}
+
+/* Barra Inferior */
+.footer-bottom {
+    background-color: #111f0b; /* Casi negro verdoso */
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.footer-bottom a { color: #999; text-decoration: none; }
+
+/* ==========================================================================
+   ZONA DE ESCRITORIO: ESTRATEGIA ESCALONADA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   NIVEL 1: Laptops Pequeñas y PCs viejos (De 1024px hasta 1366px)
+   Objetivo: Que todo quepa sin saltar de línea.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    #navegador {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.625rem 2rem; /* Padding lateral moderado */
+        height: auto;
+    }
+
+    .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Gap pequeño */
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        width: 40px; /* Logo discreto */
+        height: auto;
+    }
+    
+    .brand {
+        font-size: 16px; /* Tamaño fijo seguro */
+        white-space: nowrap;
+    }
+
+    #navegador .links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 15px; /* Espacio apretadito para que quepa todo */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #navegador .links a {
+        font-size: 14px; /* Letra compacta pero legible */
+        white-space: nowrap;
+        padding: 5px 0;
+        display: block;
+    }
+    
+    /* Configuración base del dropdown (aplica a todos los tamaños siguientes) */
+    .dropdown { position: relative; }
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+    }
+    .dropdown-content.visible { display: flex; }
+
+/* 1. Ajuste de las Ondas SVG (Para ahorrar espacio vertical) */
+    .custom-shape-divider-top-1752876816 svg {
+        height: 70px; /* Bajamos de 115px a 70px */
+    }
+    
+    .custom-shape-divider-bottom-1752947490 svg {
+        height: 100px; /* Bajamos de 175px a 100px */
+    }
+
+    /* 2. Ajustes del contenedor principal */
+    .form-marcas {
+        /* Reducimos el padding inferior drásticamente */
+        padding-bottom: 3rem; 
+    }
+
+    /* 3. Ajustes de contenido */
+    .form-marcas-contenido {
+        max-width: 35rem; /* Caja más angosta */
+        /* Ajustamos el margen negativo ya que la onda de arriba es más pequeña */
+        margin-top: -1rem; 
+    }
+
+    .form-marcas-contenido h2 {
+        font-size: 2rem; /* Título controlado */
+        margin-bottom: 0.5rem;
+    }
+
+    .form-marcas-contenido p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-tianguis {
+        padding: 0.6rem 1.5rem; /* Botón un poco más chico */
+    }
+
+    .historia-tianguis {
+        padding: 1.5rem 1rem; /* Un poco menos de aire general */
+    }
+
+    .historia-tianguis h2 {
+        font-size: 1.8rem; /* Título controlado */
+        margin-bottom: 0.8rem;
+    }
+    
+    .acordeon-container details {
+        margin-bottom: 0.6rem; /* Juntamos un poco más las cajas */
+        font-size: 1rem; /* Bajamos el tamaño general de la letra */
+    }
+
+    .acordeon-container summary {
+        /* Barra más delgada */
+        padding: 0.7rem 1rem; 
+        font-size: 1rem;
+    }
+
+    .acordeon-container .acordeon-contenido {
+        /* REDUCCIÓN IMPORTANTE: */
+        /* El padding superior baja de 2.5rem a 1rem. */
+        /* Esto hace que al abrir, no haya tanto espacio vacío arriba del texto */
+        padding: 1rem 1rem 1rem 1rem; 
+        margin: 0 1rem;
+    }
+
+    .aliados-section {
+        /* Reducimos el aire vertical general */
+        padding: 2rem 0; 
+    }
+
+    .swiper-wrapper {
+        /* Reducimos ese espacio superior grande que tenía */
+        padding-top: 1.5rem; 
+    }
+
+    .swiper-slide {
+        /* Hacemos la caja de cada logo más estrecha para que quepan más */
+        width: 12rem !important; 
+    }
+
+    .swiper-slide img {
+        /* Logos más discretos (de 100px a ~72px) */
+        height: 4.5rem; 
+        max-width: 6rem;
+    }
+
+    .footer-clorofila {
+        padding-top: 1.5rem; /* Muy poco aire arriba */
+    }
+
+    .footer-container {
+        /* Grid de 3 columnas pero COMPACTO */
+        grid-template-columns: 1.5fr 1fr 1.2fr; 
+        text-align: left;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .footer-desc {
+        margin: 0;
+        font-size: 0.85rem; /* Texto chiquito y elegante */
+    }
+
+    .footer-socials { justify-content: flex-start; }
+
+    .footer-logo { width: 3.5rem; }
+    
+    .footer-brand { font-size: 1.1rem; }
+    
+    .links-col h4, .contact-col h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #4C6E2C; /* Línea separadora sutil */
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 2: Escritorio Estándar / Laptops grandes (Desde 1367px en adelante)
+   Objetivo: Mejorar la legibilidad y dar aire.
+   (Esto SOBRESCRIBE al Nivel 1 si la pantalla es más grande)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1367px) {
+    #navegador {
+        padding: 0.625rem 3rem; /* Más aire a los lados */
+    }
+
+    .brand-box {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 50px; /* El logo crece un poco */
+    }
+
+    .brand {
+        font-size: 18px; /* La marca se hace notar más */
+    }
+
+    #navegador .links {
+        gap: 25px; /* Los enlaces se separan más, más elegante */
+    }
+
+    #navegador .links a {
+        font-size: 16px; /* Tamaño estándar web */
+    }
+    
+    .dropdown-content {
+        min-width: 200px;
+    }
+
+    .custom-shape-divider-top-1752876816 svg {
+        height: 100px; /* Casi el original */
+    }
+    
+    .custom-shape-divider-bottom-1752947490 svg {
+        height: 150px; /* Casi el original */
+    }
+
+    .form-marcas {
+        padding-bottom: 5rem;
+    }
+
+    .form-marcas-contenido {
+        max-width: 45rem; 
+        margin-top: -1.5rem;
+    }
+
+    .form-marcas-contenido h2 {
+        font-size: 2.5rem;
+    }
+    
+    .btn-tianguis {
+        padding: 0.75rem 1.875rem;
+    }
+
+    .historia-tianguis h2 {
+        font-size: 2.2rem;
+    }
+    
+    .acordeon-container summary {
+        padding: 0.9rem 1.25rem; /* Volvemos al grosor medio */
+        font-size: 1.1rem;
+    }
+    
+    .acordeon-container .acordeon-contenido {
+        padding: 1.5rem 1.25rem; /* Un poco más de aire, pero no exagerado */
+    }
+
+    .aliados-section {
+        padding: 3rem 0;
+    }
+
+    .swiper-wrapper {
+        padding-top: 3rem; /* Volvemos al aire original */
+    }
+
+    .swiper-slide {
+        width: 15rem !important;
+    }
+
+    .swiper-slide img {
+        height: 6rem; /* Altura estándar */
+        max-width: 7.5rem;
+    }
+
+    .footer-clorofila { padding-top: 3rem; }
+    .footer-container { gap: 3rem; }
+    .footer-brand { font-size: 1.5rem; }
+    .footer-desc { font-size: 1rem; }
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 3: Pantallas Gigantes / 4K / iMacs (Desde 1600px en adelante)
+   Objetivo: Que no se vea todo diminuto en un monitor enorme.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1600px) {
+    #navegador {
+        padding: 0.8rem 5rem; /* Mucho padding para centrar la vista */
+    }
+
+    .brand-box {
+        gap: 15px;
+    }
+
+    .logo {
+        width: 65px; /* Logo grande */
+    }
+
+    .brand {
+        font-size: 22px; /* Título imponente */
+    }
+
+    #navegador .links {
+        gap: 40px; /* Mucho espacio entre botones */
+    }
+
+    #navegador .links a {
+        font-size: 18px; /* Texto grande y fácil de leer */
+    }
+
+/* En pantallas muy anchas, las ondas necesitan altura para no verse como una línea recta */
+    .custom-shape-divider-top-1752876816 svg {
+        height: 160px; 
+    }
+    
+    .custom-shape-divider-bottom-1752947490 svg {
+        height: 250px; 
+    }
+
+    .form-marcas {
+        padding-bottom: 8rem;
+    }
+
+    .form-marcas-contenido {
+        max-width: 60rem; 
+        margin-top: -2.5rem; /* Subimos más el texto hacia la onda grande */
+    }
+
+    .form-marcas-contenido h2 {
+        font-size: 3.5rem;
+    }
+
+    .form-marcas-contenido p {
+        font-size: 1.3rem;
+    }
+
+    .historia-tianguis {
+        padding: 4rem 2rem;
+    }
+
+    .historia-tianguis h2 {
+        font-size: 3rem;
+    }
+    
+    .historia-tianguis p {
+        font-size: 1.3rem;
+        max-width: 50rem;
+    }
+
+    .acordeon-container details {
+        margin-bottom: 1.2rem;
+        font-size: 1.2rem;
+    }
+
+    .acordeon-container summary {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .acordeon-container summary::after {
+        font-size: 1.3rem; /* Flecha más grande */
+    }
+
+    .acordeon-container .acordeon-contenido {
+        padding: 2.5rem 2rem 2rem 2rem; /* Volvemos al padding amplio original */
+        font-size: 1.2rem;
+    }
+
+    .aliados-section {
+        padding: 5rem 0;
+    }
+
+    .swiper-wrapper {
+        padding-top: 4rem;
+    }
+
+    .swiper-slide {
+        /* Cajas anchas para monitores grandes */
+        width: 18rem !important; 
+    }
+
+    .swiper-slide img {
+        /* Logos grandes y nítidos */
+        height: 8rem; 
+        max-width: 10rem;
+    }
+}

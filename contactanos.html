@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contáctanos</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+        <link rel="stylesheet" href="css/contactanos.css">
+        <link rel="icon" href="multimedia/img/Logo Clorofila Taller solo mancha.webp">
+    </head>
+
+    <body>
+        <nav id="navegador">
+            <a href="index.html" class="brand-box">
+                <img class="logo" src="multimedia/img/Logo Clorofila Taller solo mancha.webp">
+                <span class="brand">Corporación Clorofila</span>
+            </a>
+
+            <ul class="links">
+          <li class="dropdown">
+            <a href="quienes_somos.html">¿Quiénes somos? <span class="arrow">▼</span></a>
+        
+            <ul class="dropdown-content">
+                <li><a href="quienes_somos.html#nosotros">Nosotros</a></li>
+                <li><a href="quienes_somos.html#proyectos">Proyectos</a></li>
+                <li><a href="quienes_somos.html#equipo">Nuestro Equipo</a></li>
+                <li><a href="quienes_somos.html#estatutos">Estatutos</a></li>
+            </ul>
+          </li>
+                <li><a href="clorofilataller.html">Clorofila Taller</a></li>
+                <li><a href="clorofilapc.html">Clorofila Pickleball Club</a></li>
+                <li><a href="clorotianguis.html">Clorofila Tianguis</a></li>
+                <li><a href="apoyanos.html">Apóyanos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2>Estamos Aquí para Ayudarte</h2>
+                    <p>¿Tienes una pregunta, una propuesta o simplemente quieres saludar? No dudes en contactarnos.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <ul class="info-list">
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>📍 Av 32 #57-26 Bello, Antioquia</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:[tuemail@ejemplo.com]">✉️ clorofilacorp@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+571234567890">📱 +57 319 5596886</a>
+                            </li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/clorofilataller/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/Clorofilataller" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/message/DA4MU3JNQUZDP1" target="_blank" aria-label="Whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="form-contacto">
+                        <p>Formulario de Google Forms:</p>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvTXnNMwelknBi23JGwn_oszaHXkxRekF9Sr9jptoRMgyd8Q/viewform?usp=sharing&ouid=110559487005476887103" class="btn-contacto" target="_blank">
+                            <span>Contáctanos</span>
+                            <span class="icono-flecha">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.396592115363!2d-75.54296462410069!3d6.342654325236598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442f823718a941%3A0x177df7dddcb6daf4!2sClorofila%20Taller!5e0!3m2!1ses-419!2sco!4v1760417667042!5m2!1ses-419!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        // ===============================================
+        // LÓGICA PARA EL MENÚ DESPLEGABLE CON CLIC
+        // ===============================================
+        const dropdownToggle = document.querySelector('.dropdown > a'); // Seleccionamos el enlace principal del dropdown
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownToggle.addEventListener('click', function (e) {
+            // Si el menú desplegable tiene sub-items, prevenimos que el enlace navegue
+            if (dropdownContent) {
+                e.preventDefault(); // Prevenimos el salto a la página
+                // 'toggle' es un interruptor: si la clase está, la quita; si no está, la pone.
+                dropdownContent.classList.toggle('visible'); 
+            }
+        });
+
+        // Opcional: Cierra el menú si se hace clic fuera de él
+        window.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.remove('visible');
+            }
+        });
+        </script>
+    </body>
+
+    <footer class="footer-clorofila">
+        <div class="footer-container">
+            
+            <div class="footer-col brand-col">
+                <img src="multimedia/img/Logo Clorofila Taller solo mancha.webp" alt="Logo Corporación Clorofila" class="footer-logo">
+                <h3 class="footer-brand">Corporación Clorofila</h3>
+                <p class="footer-desc">
+                    Un espacio cultural, deportivo y ecológico donde convergen el arte, la comunidad y la naturaleza.
+                </p>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="quienes_somos.html">¿Quiénes somos?</a></li>
+                    <li><a href="clorofilataller.html">Taller</a></li>
+                    <li><a href="clorofilapc.html">Pickleball Club</a></li>
+                    <li><a href="clorotianguis.html">Tianguis</a></li>
+                    <li><a href="apoyanos.html">Apóyanos</a></li>
+                    <li><a href="contactanos.html">Contáctanos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>Encuéntranos</h4>
+                <p><i class="ubicacion-icon">📍</i> Av 32 #57-26 Bello, Antioquia</p>
+                <p><i class="email-icon">✉️</i> clorofilacorp@gmail.com</p>
+                <p><i class="phone-icon">📱</i> 319 5596886</p>
+                
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/clorofilataller/" target="_blank" aria-label="Instagram">
+                        <img src="multimedia/img/ig.webp" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/Clorofilataller" target="_blank" aria-label="Facebook">
+                        <img src="multimedia/img/fb.webp" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/message/DA4MU3JNQUZDP1" target="_blank" aria-label="WhatsApp">
+                        <img src="multimedia/img/wasa.webp" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Corporación Clorofila. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</html>
