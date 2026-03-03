@@ -968,3 +968,237 @@ details[open] summary::after {
         border-width: 3px; /* Borde más grueso */
     }
 }
+
+.menu-toggle{
+    display: none;
+}
+
+/* ==========================================================================
+   ZONA MÓVIL Y TABLET (Hasta 1023px)
+   Objetivo: Reorganizar para lectura vertical y menú táctil.
+   ========================================================================== */
+
+@media screen and (max-width: 1023px) {
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* --- 1. NAVEGACIÓN (Menú Hamburguesa) --- */
+    #navegador {
+        padding: 0.8rem 1.5rem;
+        justify-content: space-between;
+        position: fixed;
+    }
+
+    /* Botón de las 3 rayitas */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Por encima del menú desplegado */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: black; /* O blanco, según contraste */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación del botón a 'X' (Opcional visual) */
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* El contenedor de links (oculto por defecto) */
+    #navegador .links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo de la barra verde */
+        left: 0;
+        width: 100%;
+        background-color: #00A10C; /* Mismo verde del nav */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Efecto persiana */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+
+    /* Cuando JS agrega la clase 'active' */
+    #navegador .links.active {
+        max-height: 500px; /* Suficiente para que quepan todos */
+        padding-bottom: 1rem;
+    }
+
+    #navegador .links a {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Ajuste del Dropdown en móvil para que no flote, sino que empuje */
+    .links .dropdown-content {
+        position: static; /* Ya no flota */
+        background-color: #008f0b; /* Un verde un poquitín más oscuro para diferenciar */
+        box-shadow: none;
+        min-width: 100%;
+        display: none; /* JS lo maneja con .visible */
+    }
+    
+    .links .dropdown-content a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+/* --- AJUSTES GENERALES --- */
+    body {
+        /* Reducimos el padding superior porque el menú móvil suele ser más compacto */
+        padding-top: 60px; 
+    }
+
+    /* --- 1. HERO (Portada) --- */
+    .hero-split {
+        flex-direction: column; /* Apilar verticalmente */
+        height: auto; /* Dejar que el contenido defina la altura */
+        min-height: auto;
+    }
+
+    .split-columna-imagen {
+        order: 1; /* La imagen va PRIMERO en celular para impacto visual */
+        width: 100%;
+        min-height: 250px; /* Altura fija para la foto */
+        height: 35vh; 
+    }
+
+    .split-columna-texto {
+        order: 2; /* Texto debajo */
+        padding: 3rem 1.5rem; /* Menos relleno lateral */
+        text-align: center; /* Centrado se ve más elegante en móvil */
+    }
+
+    .split-columna-texto h1 {
+        font-size: 2.2rem; /* Reducir tamaño de 3.5rem a algo manejable */
+        line-height: 1.1;
+    }
+
+    .split-columna-texto h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* --- 2. SECCIÓN INSCRIPCIÓN (CTA) --- */
+    .inscripcion-section {
+        padding: 4rem 1.5rem; /* Mucho menos padding que en PC */
+        background-attachment: scroll; /* IMPORTANTE: 'fixed' falla en muchos móviles */
+        background-position: center;
+    }
+
+    .inscripcion-contenido h2 {
+        font-size: 2rem;
+    }
+
+    .inscripcion-contenido p {
+        font-size: 1rem;
+    }
+
+    /* --- 3. ACORDEÓN --- */
+    .info-acordeon-section {
+        padding: 3rem 1rem; /* Aprovechar más el ancho */
+    }
+
+    .info-acordeon-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .acordeon-container {
+        width: 100%; /* Ocupar todo el ancho disponible */
+    }
+
+    summary {
+        font-size: 1rem;
+        padding: 1rem;
+        gap: 10px; /* Espacio entre texto y el '+' */
+    }
+
+    summary::after {
+        font-size: 1.5rem; /* Signo más un poco más pequeño */
+    }
+
+    /* --- 4. GALERÍA (Estilo Mosaico) --- */
+    .galeria-section {
+        padding: 3rem 0.5rem; /* Casi sin bordes laterales */
+    }
+
+    .galeria-grid {
+        /* SUGERENCIA: 2 columnas en lugar de 1.
+           Se ve más estilo "Instagram" y menos scroll infinito. */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 0.5rem; /* Separación fina */
+    }
+
+    .galeria-grid img {
+        height: 10rem; /* Cuadrados más pequeños */
+        border-radius: 4px; /* Bordes menos redondeados para encajar mejor */
+    }
+
+    /* --- 5. MODAL --- */
+    .modal-contenido {
+        width: 90%; /* Ocupar casi toda la pantalla */
+        padding: 1.5rem;
+        margin: auto;
+    }
+
+    .modal-cerrar {
+        top: 0.5rem;
+        right: 0.8rem;
+    }
+
+    /* --- 6. FOOTER --- */
+    .footer-clorofila {
+        position: relative; /* CRÍTICO: Cambiar de absolute a relative en móvil
+                               para que no tape el contenido cuando abres el acordeón */
+        padding-top: 3rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 2.5rem;
+        text-align: center; /* Todo centrado */
+    }
+
+    .footer-desc {
+        margin: 0 auto; /* Centrar el texto descriptivo */
+    }
+
+    /* Líneas divisorias sutiles entre secciones del footer */
+    .links-col, .contact-col {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 2rem;
+    }
+
+    .footer-socials {
+        justify-content: center; /* Iconos centrados */
+    }
+
+}
+
+/* Ajuste específico para celulares muy pequeños (iPhone SE, etc) */
+@media screen and (max-width: 360px) {
+    .brand { font-size: 1rem; }
+    .corp { width: 120px; }
+}

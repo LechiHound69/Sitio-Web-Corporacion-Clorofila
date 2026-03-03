@@ -12,6 +12,13 @@
     <body>
 
       <nav id="navegador">
+
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <a href="index.html" class="brand-box">
             <img class="logo" src="multimedia/img/Logo Clorofila Taller solo mancha.webp">
             <span class="brand">Corporación Clorofila</span>
@@ -129,6 +136,16 @@
                 dropdownContent.classList.remove('visible');
             }
         });
+
+        // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+        });
+
       </script>
     </body>
 

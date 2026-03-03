@@ -2,6 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Apóyanos</title>
         <link rel="stylesheet" href="css/apoyanos.css">
         <link rel="icon" href="multimedia/img/Logo Clorofila Corp sin fondo.webp">
@@ -9,6 +10,13 @@
 
     <body>
         <nav id="navegador">
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <a href="index.html" class="brand-box">
                 <img class="logo" src="multimedia/img/Logo Clorofila Taller solo mancha.webp">
                 <span class="brand">Corporación Clorofila</span>
@@ -143,6 +151,16 @@
                         console.error('Error al copiar el texto: ', err);
                     });
             });
+
+            // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+            });
+
         </script>
 
     </body>

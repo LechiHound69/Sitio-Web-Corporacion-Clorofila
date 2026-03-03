@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>¿Quiénes somos?</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link rel="icon" href="multimedia/img/Logo Clorofila Corp sin fondo.webp">
@@ -9,6 +11,13 @@
 
     <body>
         <nav id="navegador">
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <a href="index.html" class="brand-box">
                 <img class="logo" src="multimedia/img/Logo Clorofila Taller solo mancha.webp">
                 <span class="brand">Corporación Clorofila</span>
@@ -142,7 +151,7 @@
                 <div class="informe-contenido">
                     <h3>Memoria de actividades 2025</h3>
                     <p>
-El 2025 fue el año de consolidación para la Corporación Clorofila Taller, a partir del 7 de marzo nos constituimos como personería jurídica y entidad sin ánimo de lucro. Nacimos con el NIT 901924908-6 y continuamos este camino de unir el arte, la cultura y el deporte en esta periferia de la comuna 8 de Bello, Antioquia.
+                        El 2025 fue el año de consolidación para la Corporación Clorofila Taller, a partir del 7 de marzo nos constituimos como personería jurídica y entidad sin ánimo de lucro. Nacimos con el NIT 901924908-6 y continuamos este camino de unir el arte, la cultura y el deporte en esta periferia de la comuna 8 de Bello, Antioquia.
                     </p>
                     <a href="multimedia/other/Memoria_de_actividades_2025.pdf" class="btn-cta" target="_blank" download>Descargar (PDF)</a>
                 </div>
@@ -277,7 +286,7 @@ El 2025 fue el año de consolidación para la Corporación Clorofila Taller, a p
               },
           });
 
-        console.log("¡El script de Estatutos se está ejecutando! ✅");
+        console.log("¡El script de Informe se está ejecutando! ✅");
 
           const swiperInforme = new Swiper('.informe-slider', {
               // Opciones
@@ -341,6 +350,35 @@ El 2025 fue el año de consolidación para la Corporación Clorofila Taller, a p
                 dropdownContent.classList.remove('visible');
             }
         });
+
+        // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.links');
+        const menuItems = document.querySelectorAll('.links a');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+        });
+
+        // NUEVO: Cerrar el menú automáticamente al tocar una opción
+        menuItems.forEach(enlace => {
+            enlace.addEventListener('click', function() {
+                // EXCEPCIÓN: Si el enlace es el que abre el desplegable ("¿Quiénes somos?"),
+                // NO cerramos el menú, porque el usuario quiere ver las opciones.
+                // Verificamos si el padre inmediato del enlace tiene la clase "dropdown"
+                if (this.parentElement.classList.contains('dropdown')) {
+                    return; // No hacemos nada, dejamos que el menú siga abierto
+                }
+
+                // Para cualquier otro enlace (Proyectos, Equipo, Inicio, etc.), cerramos el menú
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            });
+        });
+
         </script>
 
     </body>

@@ -544,3 +544,215 @@ body {
         font-size: 18px; /* Texto grande y fácil de leer */
     }
 }
+
+.menu-toggle{
+    display: none;
+}
+
+/* ==========================================================================
+   ZONA MÓVIL Y TABLET (Hasta 1023px)
+   Objetivo: Reorganizar para lectura vertical y menú táctil.
+   ========================================================================== */
+
+@media screen and (max-width: 1023px) {
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* --- 1. NAVEGACIÓN (Menú Hamburguesa) --- */
+    #navegador {
+        padding: 0.8rem 1.5rem;
+        justify-content: space-between;
+        position: fixed;
+    }
+
+    /* Botón de las 3 rayitas */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Por encima del menú desplegado */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: black; /* O blanco, según contraste */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación del botón a 'X' (Opcional visual) */
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* El contenedor de links (oculto por defecto) */
+    #navegador .links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo de la barra verde */
+        left: 0;
+        width: 100%;
+        background-color: #00A10C; /* Mismo verde del nav */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Efecto persiana */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+
+    /* Cuando JS agrega la clase 'active' */
+    #navegador .links.active {
+        max-height: 500px; /* Suficiente para que quepan todos */
+        padding-bottom: 1rem;
+    }
+
+    #navegador .links a {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Ajuste del Dropdown en móvil para que no flote, sino que empuje */
+    .links .dropdown-content {
+        position: static; /* Ya no flota */
+        background-color: #008f0b; /* Un verde un poquitín más oscuro para diferenciar */
+        box-shadow: none;
+        min-width: 100%;
+        display: none; /* JS lo maneja con .visible */
+    }
+    
+    .links .dropdown-content a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+body {
+        padding-top: 60px;
+    }
+
+    /* --- 1. INTRODUCCIÓN --- */
+    .apoyanos-section {
+        padding: 2rem 1rem; /* Menos aire lateral */
+    }
+
+    .apoyo-intro h2 {
+        font-size: 2rem; /* Título un poco más pequeño */
+    }
+
+    .apoyo-intro p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    /* --- 2. TARJETAS DE APOYO --- */
+    .apoyo-card {
+        padding: 1.5rem; /* Reducimos el padding interno */
+        margin-bottom: 1.5rem;
+    }
+
+    .apoyo-card h3 {
+        font-size: 1.5rem;
+        /* Centramos el título y el icono en móvil para que se vea ordenado */
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .apoyo-card h3 i {
+        margin-right: 0; /* Quitamos margen derecho porque ahora está arriba */
+        font-size: 2rem; /* Icono más grande */
+    }
+
+    /* --- 3. MÉTODOS DE PAGO (Bancario / QR) --- */
+    .metodo {
+        flex-direction: column; /* Apilamos Icono arriba, Info abajo */
+        align-items: center;
+        text-align: center;
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .metodo > i {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        font-size: 2.5rem; /* Icono principal más visible */
+        color: #00A10C; /* Le damos color verde para destacar */
+    }
+
+    /* Botón de Copiar más amigable para el dedo */
+    .copiable {
+        flex-direction: column; /* Número arriba, botón abajo */
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .btn-copiar {
+        width: 100%; /* Botón ancho completo */
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    /* Código QR */
+    .qr-code {
+        max-width: 180px; /* Un poco más grande para escanear fácil */
+        margin: 1rem auto; /* Centrado */
+        display: block;
+    }
+
+    /* --- 4. LISTA DE OTRAS FORMAS DE AYUDAR --- */
+    .apoyo-card ul li {
+        flex-direction: column; /* Icono arriba, texto abajo */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .apoyo-card ul i {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+        color: #00A10C;
+    }
+
+    /* --- 5. FOOTER (Corrección Posición) --- */
+    .footer-clorofila {
+        position: relative;
+        padding-top: 3rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .footer-socials { justify-content: center; }
+    
+    .links-col, .contact-col {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 2rem;
+    }
+
+}
+
+/* Ajuste específico para celulares muy pequeños (iPhone SE, etc) */
+@media screen and (max-width: 360px) {
+    .brand { font-size: 1rem; }
+    .corp { width: 120px; }
+}

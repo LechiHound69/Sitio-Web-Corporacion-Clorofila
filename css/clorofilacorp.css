@@ -657,3 +657,196 @@ a {
             padding: 1.5rem 0;
         }
 }
+
+.menu-toggle{
+    display: none;
+}
+
+/* ==========================================================================
+   ZONA MÓVIL Y TABLET (Hasta 1023px)
+   Objetivo: Reorganizar para lectura vertical y menú táctil.
+   ========================================================================== */
+
+@media screen and (max-width: 1023px) {
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* --- 1. NAVEGACIÓN (Menú Hamburguesa) --- */
+    #navegador {
+        padding: 0.8rem 1.5rem;
+        justify-content: space-between;
+        position: fixed;
+    }
+
+    /* Botón de las 3 rayitas */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Por encima del menú desplegado */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: black; /* O blanco, según contraste */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación del botón a 'X' (Opcional visual) */
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* El contenedor de links (oculto por defecto) */
+    #navegador .links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo de la barra verde */
+        left: 0;
+        width: 100%;
+        background-color: #00A10C; /* Mismo verde del nav */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Efecto persiana */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+
+    /* Cuando JS agrega la clase 'active' */
+    #navegador .links.active {
+        max-height: 500px; /* Suficiente para que quepan todos */
+        padding-bottom: 1rem;
+    }
+
+    #navegador .links a {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Ajuste del Dropdown en móvil para que no flote, sino que empuje */
+    .links .dropdown-content {
+        position: static; /* Ya no flota */
+        background-color: #008f0b; /* Un verde un poquitín más oscuro para diferenciar */
+        box-shadow: none;
+        min-width: 100%;
+        display: none; /* JS lo maneja con .visible */
+    }
+    
+    .links .dropdown-content a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .links .dropdown-content.visible {
+            display: block; /* Importante para que el JS funcione */
+        }
+
+    /* --- 2. HERO SECTION (.sup) --- */
+    .sup {
+        height: 60vh; /* Menos altura en celular */
+        background-position: center;
+        /* El clip-path puede ser menos agresivo en móvil para no cortar info */
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    .container h1 {
+        font-size: 1.4rem;
+        width: 90%;
+        margin-top: 1rem; /* Subir un poco el título sobre el clip-path */
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Logo superpuesto (.corp) */
+    .corp {
+        width: 160px; /* Tamaño fijo controlado */
+        top: 40%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%); /* Centrado perfecto absoluto */
+        background-color: rgba(255, 255, 255, 0.4); /* Un poco más legible */
+        border-radius: 16px;
+    }
+
+    /* --- 3. EPISODIOS Y CONTENIDO --- */
+    
+    /* DECISIÓN DE DISEÑO:
+       En móvil, quitar el efecto "sticky" lateral. 
+       El logo pasa arriba y el texto abajo. Es más legible.
+    */
+    .episode {
+        display: flex;
+        flex-direction: column; /* Apilar verticalmente */
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .logodos {
+        position: static; /* Quitamos el sticky */
+        width: 140px;
+        height: auto;
+        margin: 0 auto 1rem auto; /* Centrado */
+        padding: 0;
+    }
+
+    .episode__content {
+        display: block; /* Quitamos el grid interno */
+        border-top: none; /* Quitamos la línea superior si queda rara */
+        text-align: justify; /* Opcional: texto justificado en móvil se ve ordenado tipo libro */
+        padding: 0 1rem;
+    }
+
+    .episode__number {
+        position: static;
+        height: auto;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* --- 4. FOOTER --- */
+    .footer-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .links-col h4, .contact-col h4 {
+        border-bottom: none; /* Quitar borde en móvil si se ve muy cargado */
+        display: block;
+    }
+    
+    .footer-socials {
+        justify-content: center; /* Centrar iconos */
+    }
+
+    /* Ajuste iconos flotantes */
+    .wpp {
+        width: 4rem;
+        height: 4rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Ajuste específico para celulares muy pequeños (iPhone SE, etc) */
+@media screen and (max-width: 360px) {
+    .brand { font-size: 1rem; }
+    .corp { width: 120px; }
+}

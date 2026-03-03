@@ -2,6 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clorofila Pickleball Club</title>
         <link rel="stylesheet" href="css/clorofilapc.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
@@ -10,6 +11,13 @@
 
     <body>
       <nav id="navegador">
+
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <a href="index.html" class="brand-box">
             <img class="logo" src="multimedia/img/Logo Clorofila Taller solo mancha.webp">
             <span class="brand">Corporación Clorofila</span>
@@ -293,6 +301,16 @@
             const lightbox = GLightbox({
                 selector: '.glightbox' // Busca todos los elementos con esta clase
             });
+
+            // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+            });
+
         </script>
     </body>
 

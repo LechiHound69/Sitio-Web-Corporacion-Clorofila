@@ -873,3 +873,255 @@ body {
         margin-bottom: 3rem; /* Más aire entre el texto y el calendario */
       }
 }
+
+.menu-toggle{
+    display: none;
+}
+
+/* ==========================================================================
+   ZONA MÓVIL Y TABLET (Hasta 1023px)
+   Objetivo: Reorganizar para lectura vertical y menú táctil.
+   ========================================================================== */
+
+@media screen and (max-width: 1023px) {
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* --- 1. NAVEGACIÓN (Menú Hamburguesa) --- */
+    #navegador {
+        padding: 0.8rem 1.5rem;
+        justify-content: space-between;
+        position: fixed;
+    }
+
+    /* Botón de las 3 rayitas */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Por encima del menú desplegado */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: black; /* O blanco, según contraste */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación del botón a 'X' (Opcional visual) */
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* El contenedor de links (oculto por defecto) */
+    #navegador .links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo de la barra verde */
+        left: 0;
+        width: 100%;
+        background-color: #00A10C; /* Mismo verde del nav */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; /* Efecto persiana */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+
+    /* Cuando JS agrega la clase 'active' */
+    #navegador .links.active {
+        max-height: 500px; /* Suficiente para que quepan todos */
+        padding-bottom: 1rem;
+    }
+
+    #navegador .links a {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Ajuste del Dropdown en móvil para que no flote, sino que empuje */
+    .links .dropdown-content {
+        position: static; /* Ya no flota */
+        background-color: #008f0b; /* Un verde un poquitín más oscuro para diferenciar */
+        box-shadow: none;
+        min-width: 100%;
+        display: none; /* JS lo maneja con .visible */
+    }
+    
+    .links .dropdown-content a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .links .dropdown-content.visible {
+            display: block; /* Importante para que el JS funcione */
+        }
+
+/* --- 2. PRESENTACIÓN (Hero Section) --- */
+    .presentacion {
+        /* Cambiamos altura fija por min-height para que el texto no se desborde */
+        height: auto; 
+        min-height: 85vh; 
+        padding: 6rem 1rem 2rem 1rem; /* Más padding arriba para que el nav no tape el título */
+        flex: none; /* Quitamos la restricción de flex */
+    }
+
+    .presentacion h1 {
+        font-size: 2.2rem; /* Título más manejable */
+        line-height: 1.2;
+    }
+
+    .presentacion h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Ajuste del Video de fondo para que no se deforme */
+    .video-background video {
+        /* En móviles, a veces object-fit necesita ayuda */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* --- 3. CALENDARIO GOOGLE (El iframe problemático) --- */
+    .calendario-container {
+        width: 95%; /* Margen lateral */
+        padding: 0;
+        overflow: hidden; /* Para recortar bordes raros */
+    }
+
+    .calendario-container iframe {
+        width: 100% !important; /* Forzamos a que ocupe el ancho del celular */
+        height: 500px; /* Altura suficiente */
+    }
+
+    .calendario-eventos h2 {
+        font-size: 1.8rem;
+        width: 90%;
+    }
+
+/* --- 4. SECCIÓN ESENCIA (Galería Grid + Pilares Horizontales) --- */
+    .esencia-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .esencia-texto p {
+        font-size: 1rem;
+        max-width: 100%; 
+        text-align: justify;
+        margin-bottom: 2rem;
+    }
+
+    .esencia-galeria {
+        /* ¡TU IDEA! Grid de 2 columnas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 0.8rem; /* Espacio reducidos entre fotos para que se vea compacto */
+    }
+
+    .esencia-galeria img {
+        /* Altura controlada: ni muy grandes ni muy chicas */
+        height: 9rem; 
+        width: 100%;
+        object-fit: cover; /* Recorte perfecto sin deformar */
+        border-radius: 6px;
+    }
+
+    /* PILARES: Forzamos que se queden en una sola línea horizontal */
+    .esencia-pilares {
+        display: flex;
+        flex-direction: row; /* Horizontal */
+        flex-wrap: nowrap;   /* Prohibido bajar de línea */
+        justify-content: space-between; /* Distribución uniforme */
+        gap: 0.5rem;         /* Gap pequeño para que quepan en pantallas angostas */
+        margin-top: 2.5rem;
+    }
+
+    .pilar {
+        flex: 1; /* Cada uno toma 1/3 del espacio disponible */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pilar i {
+        font-size: 1.8rem; /* Íconos un poco más discretos */
+        margin-bottom: 0.3rem;
+    }
+
+    .pilar h4 {
+        font-size: 0.85rem; /* Texto ajustado para que no se rompa la palabra */
+        margin: 0;
+    }
+
+    /* --- 5. MENÚ (Slider) --- */
+    .menu {
+        padding: 2rem 0;
+    }
+    
+    .menu h2 {
+        font-size: 1.8rem;
+        width: 90%;
+    }
+
+    .mi-menu-slider {
+        max-width: 90%; /* El menú ocupa casi toda la pantalla */
+    }
+    
+    /* Ocultar flechas de navegación en móvil (molestan al tocar)
+       y dejar solo los puntitos de paginación */
+    .swiper-button-next, 
+    .swiper-button-prev {
+        display: none; 
+    }
+
+    /* --- 6. AGENDAR EVENTO (Fondo fijo da problemas en iOS) --- */
+    .agenda-section {
+        background-attachment: scroll; /* "Fixed" suele fallar en iPhone, mejor scroll normal */
+        padding: 3rem 1rem;
+    }
+
+    .agenda-contenido h2 {
+        font-size: 1.8rem;
+    }
+
+    /* --- 7. FOOTER (Igual que en el index) --- */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .links-col h4, .contact-col h4 {
+        border-bottom: none; 
+        display: block;
+    }
+    
+    .footer-socials {
+        justify-content: center;
+    }
+
+}
+
+/* Ajuste específico para celulares muy pequeños (iPhone SE, etc) */
+@media screen and (max-width: 360px) {
+    .brand { font-size: 1rem; }
+    .corp { width: 120px; }
+}
