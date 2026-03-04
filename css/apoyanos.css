@@ -376,6 +376,47 @@ body {
 
 .footer-bottom a { color: #999; text-decoration: none; }
 
+/* ================================== */
+/* ESTILOS WIDGET VAKI (ESCRITORIO)   */
+/* ================================== */
+
+@media (min-width: 1024px) { 
+
+    .vaki-wrapper {
+            width: 100%;           /* Asegura que el contenedor tenga espacio para centrar */
+            text-align: center;    /* Centra el título h3 */
+            padding: 2rem 0;       /* Un poco de aire arriba y abajo */
+        }
+
+    .vaki-wrapper h3 {
+        color: #14213d;
+        font-size: 2.5rem;      /* Título mucho más grande que en celular */
+        margin-bottom: 2rem;    /* Más espacio entre título e iframe */
+        font-weight: 700;       /* Letra gruesa para destacar */
+    }
+
+    #vakiIframe {
+            /* 1. EL CENTRADO OBLIGATORIO */
+            display: block;        /* Lo convertimos en bloque sólido */
+            margin: 0 auto;        /* Mágico: 0 arriba/abajo, AUTO a los lados (CENTRA) */
+
+            /* 2. TAMAÑO CONTROLADO */
+            width: 85%;            /* Que ocupe el 85% del ancho disponible */
+            max-width: 900px;      /* Pero que se frene en 900px (ancho máximo elegante) */
+            height: 480px;         /* Le bajé de 600px a 480px (más compacto) */
+            
+            /* 3. ESTÉTICA */
+            border: none;
+            border-radius: 16px;   /* Bordes redondeados pero no exagerados */
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Sombra suave para darle profundidad */
+        }
+
+    /* Un detalle extra: si pasas el mouse, flota un poquito */
+    #vakiIframe:hover {
+        transform: translateY(-5px);
+    }
+}
+
 /* ==========================================================================
    ZONA DE ESCRITORIO: ESTRATEGIA ESCALONADA
    ========================================================================== */
@@ -749,10 +790,42 @@ body {
         padding-top: 2rem;
     }
 
+    /* ================================== */
+    /* ESTILOS WIDGET VAKI (RESPONSIVE)   */
+    /* ================================== */
+
+    .vaki-wrapper {
+        text-align: center; /* Centra el título y el iframe */
+        margin: 3rem auto; /* Separación vertical y centrado horizontal */
+        padding: 0 1rem; /* Margen de seguridad en móviles */
+        max-width: 100%;
+    }
+
+    .vaki-wrapper h3 {
+        color: #14213d;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #vakiIframe {
+        border: none; /* Quitamos el borde feo por defecto */
+        width: 100%;  /* Ocupa todo el ancho disponible del contenedor */
+        max-width: 350px; /* PERO nunca más de 350px (su tamaño ideal) */
+        height: 415px; /* Altura fija para que se vea todo el contenido */
+        
+        /* Estética para que combine con tu sitio */
+        border-radius: 12px; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra elegante */
+        background-color: white; /* Fondo blanco por si acaso */
+    }
+
 }
 
 /* Ajuste específico para celulares muy pequeños (iPhone SE, etc) */
 @media screen and (max-width: 360px) {
     .brand { font-size: 1rem; }
     .corp { width: 120px; }
+    #vakiIframe {
+    height: 450px; /* Un poco más alto en pantallas muy angostas por si el texto se reacomoda */
+    }
 }
