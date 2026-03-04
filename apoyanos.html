@@ -131,6 +131,15 @@
                 dropdownContent.classList.remove('visible');
             }
         });
+
+            // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+            });
         </script>
 
         <script>
@@ -157,15 +166,6 @@
                     .catch(err => {
                         console.error('Error al copiar el texto: ', err);
                     });
-            });
-
-            // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.links');
-
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('open'); // Para animar el icono si quieres
             });
 
         </script>
