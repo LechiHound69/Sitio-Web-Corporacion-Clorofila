@@ -173,6 +173,7 @@ body {
 .proyectos {
     padding: 3.75rem 1.25rem;
     text-align: center;
+    color: #14213d;
 }
 
 .proyectos h2 {
@@ -1506,6 +1507,7 @@ body {
     /* --- 3. PROYECTOS (Tabs y Paneles compactos) --- */
     .proyectos {
         padding: 2rem 0.5rem; /* Compactamos la sección */
+        color: #14213d;
     }
 
     .proyectos h2 { font-size: 1.8rem; margin-bottom: 1rem; }
