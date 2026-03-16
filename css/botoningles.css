@@ -1,0 +1,25 @@
+.boton-idioma {
+    position: fixed;
+    bottom: 20px; /* Separación del borde inferior */
+    left: 20px;   /* Separación del borde izquierdo */
+    z-index: 1000; /* Para que siempre esté por encima de todo */
+    background-color: #14213d; /* Tu color oscuro pro */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px; /* Estilo píldora */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #8BC34A; /* Tu verde corporativo */
+}
+
+.boton-idioma:hover {
+    transform: scale(1.1);
+    background-color: #8BC34A;
+    color: #14213d;
+}

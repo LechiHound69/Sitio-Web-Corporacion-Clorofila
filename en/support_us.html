@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apóyanos</title>
+        <link rel="stylesheet" href="../css/apoyanos.css">
+        <link rel="stylesheet" href="../css/botoningles.css">
+        <link rel="icon" href="../multimedia/img/Logo Clorofila Corp sin fondo.webp">
+    </head>
+
+    <body>
+
+        <a href="../apoyanos.html" class="boton-idioma">
+        🌐 Español
+        </a>
+
+        <nav id="navegador">
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="brand-box">
+                <img class="logo" src="../multimedia/img/Logo Clorofila Taller solo mancha.webp">
+                <span class="brand">Corporación Clorofila</span>
+            </a>
+
+            <ul class="links">
+          <li class="dropdown">
+            <a href="about_us.html">¿Quiénes somos? <span class="arrow">▼</span></a>
+        
+            <ul class="dropdown-content">
+                <li><a href="about_us.html#nosotros">Us</a></li>
+                <li><a href="about_us.html#proyectos">Projects</a></li>
+                <li><a href="about_us.html#equipo">Team</a></li>
+                <li><a href="about_us.html#estatutos">Statutes</a></li>
+            </ul>
+          </li>
+                <li><a href="clorofilataller.html">Clorofila Taller</a></li>
+                <li><a href="clorofilapc.html">Clorofila Pickleball Club</a></li>
+                <li><a href="clorotianguis.html">Clorofila Tianguis</a></li>
+                <li><a href="support_us.html">Support us</a></li>
+                <li><a href="contact_us.html">Contact us</a></li>
+            </ul>
+        </nav>
+
+        <section class="apoyanos-section">
+            <div class="apoyanos-container">
+                
+                <div class="apoyo-intro">
+                    <h2>Tu Apoyo Transforma Vidas</h2>
+                    <p>
+                        Cada contribución, sin importar su tamaño, es un paso más hacia el cumplimiento de nuestros objetivos. 
+                        Tu apoyo es el motor que impulsa nuestros proyectos y nos permite seguir creciendo.
+                    </p>
+                </div>
+
+                <div class="apoyo-card">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> Aportes Económicos</h3>
+                    <p>Puedes realizar tu donación a través de los siguientes medios:</p>
+
+                    <div class="metodos-pago">
+                        <div class="metodo">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <div class="metodo-info">
+                                <h4>Aportes económicos</h4>
+                                <p><strong>Banco: </strong>Vaki</p>
+                                <div class="copiable">
+                                    <p>
+                                        <strong>Link del crowdfunding:</strong> 
+                                        <!-- <span id="numero-cuenta">Proximamente</span> -->
+                                    </p>
+                                    <!-- <button id="btn-copiar" class="btn-copiar">
+                                        <i class="fa-regular fa-copy"></i>
+                                         
+                                    </button> -->   
+                                    <a href="https://vaki.co/es/vaki/vaki-clorofila-taller-por-la-cultura?utm_source=copy&utm_medium=share-dialog&utm_campaign=v4" class="btn-copiar" target="_blank">Redirigir</a>
+
+                                </div>
+                                <!-- <p><strong>Tipo de cuenta:</strong></p> -->
+                                <p><strong>A nombre de:</strong> Corporación Clorofila</p>
+                                <p><strong>NIT:</strong> 901924908-6</p>
+                            </div>
+                        </div>
+
+                        <div class="metodo">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <div class="metodo-info">
+                                <h4>Recaudación en Vaki:</h4>
+                                <div class="vaki-wrapper">
+                                    <iframe id="vakiIframe"
+                                        title="Vaki Clorofila Taller por la cultura"
+                                        src="https://vaki.co/iframe/Uz5mQVnhWsRh3C1dv1gO">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apoyo-card">
+                    <h3><i class="fa-solid fa-handshake-angle"></i> Otras Formas de Ayudar</h3>
+                    <p>El apoyo económico es vital, pero también puedes contribuir de otras maneras:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-share-nodes"></i> <strong>Difundiendo nuestro trabajo:</strong> Comparte nuestras publicaciones en redes sociales.</li>
+                        <li><i class="fa-solid fa-people-group"></i> <strong>Como voluntario:</strong> Únete a nuestro equipo para participar en eventos y proyectos.</li>
+                        <li><i class="fa-solid fa-box-open"></i> <strong>Con donaciones en especie:</strong> Aportando materiales o equipos que necesitemos.</li>
+                    </ul>
+                    <p>Si quieres ayudar de estas formas, ¡<a href="contactanos.html">contáctanos</a>!</p>
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+        // ===============================================
+        // LÓGICA PARA EL MENÚ DESPLEGABLE CON CLIC
+        // ===============================================
+        const dropdownToggle = document.querySelector('.dropdown > a'); // Seleccionamos el enlace principal del dropdown
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownToggle.addEventListener('click', function (e) {
+            // Si el menú desplegable tiene sub-items, prevenimos que el enlace navegue
+            if (dropdownContent) {
+                e.preventDefault(); // Prevenimos el salto a la página
+                // 'toggle' es un interruptor: si la clase está, la quita; si no está, la pone.
+                dropdownContent.classList.toggle('visible'); 
+            }
+        });
+
+        // Opcional: Cierra el menú si se hace clic fuera de él
+        window.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.remove('visible');
+            }
+        });
+
+            // LÓGICA MENÚ HAMBURGUESA (MÓVIL)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open'); // Para animar el icono si quieres
+            });
+        </script>
+
+        <script>
+            // 1. Seleccionamos el botón y el texto que queremos copiar
+            const botonCopiar = document.getElementById('btn-copiar');
+            const textoACopiar = document.getElementById('numero-cuenta');
+
+            // 2. Le decimos al botón que esté atento al evento 'click'
+            botonCopiar.addEventListener('click', function() {
+                
+                // 3. Cuando se hace clic, usamos la API del Navegador para copiar
+                navigator.clipboard.writeText(textoACopiar.innerText)
+                    .then(() => {
+                        // 4. Si la copia es exitosa, damos feedback visual
+                        botonCopiar.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
+                        botonCopiar.classList.add('copiado');
+                        
+                        // 5. Después de 2 segundos, volvemos al estado original
+                        setTimeout(() => {
+                            botonCopiar.innerHTML = '<i class="fa-regular fa-copy"></i> Copiar';
+                            botonCopiar.classList.remove('copiado');
+                        }, 2000); // 2000 milisegundos = 2 segundos
+                    })
+                    .catch(err => {
+                        console.error('Error al copiar el texto: ', err);
+                    });
+            });
+
+        </script>
+
+    </body>
+
+    <footer class="footer-clorofila">
+        <div class="footer-container">
+            
+            <div class="footer-col brand-col">
+                <img src="../multimedia/img/Logo Clorofila Taller solo mancha.webp" alt="Logo Corporación Clorofila" class="footer-logo">
+                <h3 class="footer-brand">Corporación Clorofila</h3>
+                <p class="footer-desc">
+                    Un espacio cultural, deportivo y ecológico donde convergen el arte, la comunidad y la naturaleza.
+                </p>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="about_us.html">About us</a></li>
+                    <li><a href="clorofilataller.html">Taller</a></li>
+                    <li><a href="clorofilapc.html">Pickleball Club</a></li>
+                    <li><a href="clorotianguis.html">Tianguis</a></li>
+                    <li><a href="support_us.html">Support us</a></li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>Encuéntranos</h4>
+                <p><i class="ubicacion-icon">📍</i> Av 32 #57-26 Bello, Antioquia</p>
+                <p><i class="email-icon">✉️</i> clorofilacorp@gmail.com</p>
+                <p><i class="phone-icon">📱</i> 319 5596886</p>
+                
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/clorofilataller/" target="_blank" aria-label="Instagram">
+                        <img src="../multimedia/img/ig.webp" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/Clorofilataller" target="_blank" aria-label="Facebook">
+                        <img src="../multimedia/img/fb.webp" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/message/DA4MU3JNQUZDP1" target="_blank" aria-label="WhatsApp">
+                        <img src="../multimedia/img/wasa.webp" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Corporación Clorofila. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+</html>
