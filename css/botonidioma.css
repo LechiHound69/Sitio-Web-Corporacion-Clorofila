@@ -23,3 +23,30 @@
     background-color: #8BC34A;
     color: #14213d;
 }
+
+/* ================================================== */
+/* ADAPTABILIDAD ESCRITORIO                           */
+/* ================================================== */
+
+/* Entre 1024px y 1367px (Portátiles) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .boton-idioma {
+        bottom: 20px; 
+        left: 20px;   
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+}
+
+/* Entre 1367px y 1600px (Monitores de Escritorio estándar) */
+@media (min-width: 1367px) and (max-width: 1600px) {
+    .boton-idioma {
+        bottom: 30px; 
+        left: 30px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        gap: 10px;
+        border-width: 3px;
+    }
+}
