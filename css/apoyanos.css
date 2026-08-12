@@ -2,6 +2,163 @@
   font-size: 100%; /* Equivalente a 16px en la mayoría de navegadores */
 }
 
+/* ========================================== */
+/* ESTILOS SECCIÓN APÓYANOS - SISMO           */
+/* ========================================== */
+
+.seccion-emergencia-detalle {
+    background-color: #5F1914;
+    color: #F3F4F6;
+    padding: 4rem 20px;
+    border-top: 4px solid #d9381e;
+    border-bottom: 4px solid #d9381e;
+}
+
+.contenedor-emergencia {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.emergencia-visual {
+    flex: 1; /* Ocupa la mitad */
+}
+
+.imagen-flyer {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.emergencia-info {
+    flex: 1; /* Ocupa la otra mitad */
+}
+
+.emergencia-info h2, h3 {
+    color: #ffda75;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+/* --- La Caja de la Cuenta Bancaria --- */
+.caja-bancaria {
+    background-color: white;
+    border: 2px dashed #8BC34A; /* Tu verde */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.datos-cuenta {
+    display: flex;
+    flex-direction: column;
+}
+
+.banco-nombre {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#numeroCuentaDonacion {
+    font-size: 1.4rem;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.btn-copiar {
+    background-color: #14213d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-copiar:hover {
+    background-color: #8BC34A;
+    color: #14213d;
+}
+
+.btn-copiar.copiado {
+    background-color: #4CAF50; /* Verde de éxito */
+    color: white;
+}
+
+/* --- Lista de aportes --- */
+.otros-aportes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.otros-aportes li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #E5E7EB;;
+}
+
+/* --- Botón WhatsApp --- */
+.comunidad-whatsapp {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.comunidad-whatsapp p {
+    font-size: 0.95rem;
+    color: #E5E7EB;;
+    margin-bottom: 12px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25D366; /* Verde oficial WhatsApp */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Verde oscuro WhatsApp */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(18, 140, 126, 0.4);
+}
+
+/* --- Adaptación a Celulares --- */
+@media (max-width: 768px) {
+    .contenedor-emergencia {
+        flex-direction: column; /* Apila el flyer arriba y el texto abajo */
+    }
+    
+    .caja-bancaria {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .btn-copiar {
+        width: 100%; /* Botón grande y fácil de tocar en móvil */
+    }
+}
+
+/* ========================================== */
+/* FIN ESTILOS SECCIÓN TEMPORAL               */
+/* ========================================== */
+
 body {
   font-family: 'typewriter';
   font-weight: 700;
